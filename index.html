@@ -33,6 +33,7 @@
       <a href="#about">About</a>
       <a href="#menu">Menu</a>
       <a href="#bakery">Bakery</a>
+      <a href="#pay">Pay</a>
       <a href="#gallery">Gallery</a>
       <a href="#reviews">Reviews</a>
       <a href="#visit">Visit</a>
@@ -250,6 +251,44 @@
     </div>
   </section>
 
+  <section id="pay" class="section pay">
+    <div class="container pay-inner">
+      <div class="pay-text">
+        <p class="kicker">Quick Pay</p>
+        <h2>Tap to pay with Apple Pay</h2>
+        <p>Settling a tab, prepaying a pickup order, or grabbing something from the bakery counter? Enter an amount and tap your iPhone, Apple Watch, or Apple Pay card on the reader.</p>
+        <div class="pay-amount">
+          <label for="pay-amount-input">Amount</label>
+          <div class="pay-amount-field">
+            <span aria-hidden="true">$</span>
+            <input type="number" id="pay-amount-input" name="amount" min="1" max="500" step="0.01" value="25.00" inputmode="decimal">
+          </div>
+        </div>
+        <button type="button" class="apple-pay-button" id="apple-pay-btn">
+          <i class="fa-brands fa-apple" aria-hidden="true"></i> Pay
+        </button>
+        <p class="pay-note" id="pay-note">Checking device compatibility&hellip;</p>
+      </div>
+      <div class="pay-visual">
+        <div class="reader" id="reader">
+          <div class="reader-waves" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="reader-body">
+            <div class="reader-screen">
+              <span class="reader-screen-label">Amount Due</span>
+              <span class="reader-screen-amount" id="reader-amount">$25.00</span>
+              <span class="reader-screen-status" id="reader-screen-status">Ready</span>
+            </div>
+            <div class="reader-nfc-icon" aria-hidden="true"><i class="fa-solid fa-wifi"></i></div>
+          </div>
+          <div class="tap-card" id="tap-card" aria-hidden="true">
+            <i class="fa-brands fa-cc-apple-pay"></i>
+          </div>
+        </div>
+        <p class="pay-disclaimer">Demo experience &mdash; no charges are made. Ask our staff to pay your tab with Apple Pay in person.</p>
+      </div>
+    </div>
+  </section>
+
   <section id="gallery" class="section gallery">
     <div class="container">
       <p class="kicker center">From Our Kitchen</p>
@@ -380,5 +419,6 @@
 <a href="tel:+18043034166" class="mobile-call-fab" aria-label="Call Quiubo Parce"><i class="fa-solid fa-phone"></i></a>
 
 <script src="js/script.js"></script>
+<script src="js/apple-pay.js"></script>
 </body>
 </html>
