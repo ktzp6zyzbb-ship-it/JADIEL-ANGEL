@@ -179,7 +179,17 @@ h2.center{text-align:center;}
     var(--yellow) 0%, var(--yellow-deep) 32%,
     var(--blue) 62%, var(--blue-deep) 78%,
     var(--red) 100%);
+  background-size:320% 320%;
+  animation:hero-wave 14s ease-in-out infinite;
   padding:100px 0 90px;
+}
+@keyframes hero-wave{
+  0%{background-position:0% 30%;}
+  50%{background-position:100% 70%;}
+  100%{background-position:0% 30%;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero{animation:none;}
 }
 .hero-pattern{
   position:absolute;inset:0;
@@ -190,10 +200,6 @@ h2.center{text-align:center;}
 }
 .hero-inner{
   position:relative;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
 }
 .hero-copy{
   max-width:640px;
@@ -240,23 +246,6 @@ h2.center{text-align:center;}
   font-weight:700;color:var(--blue-deep);font-size:.92rem;
 }
 .hero-badges i{color:var(--red);}
-
-.hero-flagpole{
-  flex-shrink:0;
-  width:220px;
-  filter:drop-shadow(0 18px 30px rgba(0,0,0,.35));
-  animation:flag-sway 4s ease-in-out infinite;
-  transform-origin:16px 12px;
-}
-.waving-flag{width:100%;height:auto;display:block;}
-@keyframes flag-sway{
-  0%,100%{transform:rotate(0deg);}
-  50%{transform:rotate(2.5deg);}
-}
-@media (prefers-reduced-motion:reduce){
-  .hero-flagpole{animation:none;}
-  .flag-cloth animate{display:none;}
-}
 
 /* ---------- About ---------- */
 .about-inner{
@@ -510,8 +499,6 @@ h2.center{text-align:center;}
   .menu-card.featured{grid-column:span 2;}
   .bakery-visual{order:-1;}
   .bakery-badge{width:160px;height:160px;font-size:3.6rem;}
-  .hero-inner{flex-direction:column;}
-  .hero-flagpole{width:150px;order:-1;}
   .hero-copy{padding:32px;max-width:100%;}
 }
 @media (max-width:600px){
