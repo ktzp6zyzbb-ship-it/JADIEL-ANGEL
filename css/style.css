@@ -175,18 +175,17 @@ h2.center{text-align:center;}
 .hero{
   position:relative;
   overflow:hidden;
-  background:linear-gradient(135deg,
-    var(--yellow) 0%, var(--yellow-deep) 32%,
-    var(--blue) 62%, var(--blue-deep) 78%,
-    var(--red) 100%);
-  background-size:320% 320%;
-  animation:hero-wave 14s ease-in-out infinite;
+  background:repeating-linear-gradient(135deg,
+    var(--yellow) 0px, var(--yellow) 150px,
+    var(--blue) 150px, var(--blue) 230px,
+    var(--red) 230px, var(--red) 310px,
+    var(--yellow) 310px);
+  animation:hero-wave 9s linear infinite;
   padding:100px 0 90px;
 }
 @keyframes hero-wave{
-  0%{background-position:0% 30%;}
-  50%{background-position:100% 70%;}
-  100%{background-position:0% 30%;}
+  from{background-position:0px 0px;}
+  to{background-position:310px 310px;}
 }
 @media (prefers-reduced-motion:reduce){
   .hero{animation:none;}
