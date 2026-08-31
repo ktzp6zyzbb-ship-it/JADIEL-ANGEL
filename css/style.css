@@ -329,10 +329,31 @@ h2.center{text-align:center;}
   display:flex;align-items:center;justify-content:center;
   font-size:1.1rem;flex-shrink:0;
 }
-.info-list strong{display:block;font-size:1.02rem;color:var(--blue-deep);}
+.info-list strong{display:block;font-size:1.02rem;color:var(--blue-deep);margin-bottom:.3em;}
 .info-list span{color:var(--ink-soft);}
 .info-list a{color:var(--red);font-weight:800;}
 .info-list a:hover{text-decoration:underline;}
+
+.hours-list{display:flex;flex-direction:column;gap:2px;}
+.hours-list li{
+  display:flex;
+  justify-content:space-between;
+  gap:24px;
+  padding:.3em 0;
+  color:var(--ink-soft);
+  font-size:.95rem;
+}
+.hours-list .day{font-weight:700;color:var(--ink-soft);}
+.hours-list .time{font-weight:700;}
+.hours-list .time.closed{color:var(--red);}
+.hours-list li.today{
+  background:var(--cream-alt);
+  border-radius:8px;
+  padding:.3em .6em;
+  margin:0 -0.6em;
+}
+.hours-list li.today .day,.hours-list li.today .time{color:var(--blue-deep);}
+.hours-list li.today .time.closed{color:var(--red);}
 .visit-map{
   border-radius:var(--radius-lg);
   overflow:hidden;

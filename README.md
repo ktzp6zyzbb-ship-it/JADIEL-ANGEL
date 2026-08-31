@@ -22,7 +22,7 @@ then visit `http://localhost:8000`.
 
 ## To update
 
-- **Hours**: the "Visit" section currently reads "Please call ahead for
-  current hours" — replace that with real hours once confirmed.
+- **Hours**: listed in the "Visit" section's `#hours-list` in `index.html`.
+  Today's row is auto-highlighted client-side by `js/script.js`.
 - **Photos**: the site currently uses icon-based visuals instead of real
   photography. Swap in real photos of the food/storefront when available.
