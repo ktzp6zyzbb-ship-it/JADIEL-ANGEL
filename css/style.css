@@ -19,6 +19,29 @@
 }
 
 *,*::before,*::after{box-sizing:border-box;}
+
+/* ---------- Colombian flag details ---------- */
+.flag-bar{
+  height:6px;
+  background:linear-gradient(to right,
+    var(--yellow) 0 33.3%,
+    var(--blue) 33.3% 66.6%,
+    var(--red) 66.6% 100%);
+}
+.co-flag{
+  display:inline-block;
+  width:22px;
+  height:15px;
+  border-radius:2px;
+  background:linear-gradient(to bottom,
+    var(--yellow) 0 50%,
+    var(--blue) 50% 75%,
+    var(--red) 75% 100%);
+  box-shadow:0 1px 2px rgba(0,0,0,.3);
+  vertical-align:middle;
+  position:relative;
+  top:-1px;
+}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
@@ -132,7 +155,10 @@ h2.center{text-align:center;}
   font-family:'Nunito Sans',sans-serif;
   font-weight:700;color:var(--ink-soft);
   font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  display:flex;align-items:center;gap:6px;
+  white-space:nowrap;
 }
+.brand-text small .co-flag{width:16px;height:11px;}
 .site-nav{display:flex;gap:28px;}
 .site-nav a{font-weight:700;color:var(--ink-soft);font-size:.95rem;}
 .site-nav a:hover{color:var(--red);}
@@ -233,6 +259,18 @@ h2.center{text-align:center;}
   padding:28px 24px;
   box-shadow:var(--shadow-card);
   transition:transform .18s ease, box-shadow .18s ease;
+  position:relative;
+  overflow:hidden;
+}
+.menu-card::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;right:0;
+  height:5px;
+  background:linear-gradient(to right,
+    var(--yellow) 0 33.3%,
+    var(--blue) 33.3% 66.6%,
+    var(--red) 66.6% 100%);
 }
 .menu-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
 .menu-card.featured{
@@ -335,8 +373,18 @@ h2.center{text-align:center;}
   padding:44px;
   box-shadow:var(--shadow-soft);
   margin:0;
-  border-left:6px solid var(--red);
   position:relative;
+  overflow:hidden;
+}
+.review-card::before{
+  content:"";
+  position:absolute;
+  top:0;bottom:0;left:0;
+  width:6px;
+  background:linear-gradient(to bottom,
+    var(--yellow) 0 33.3%,
+    var(--blue) 33.3% 66.6%,
+    var(--red) 66.6% 100%);
 }
 .stars{color:var(--yellow-deep);margin-bottom:.8em;font-size:1.05rem;}
 .review-card p{font-size:1.12rem;color:var(--ink);font-style:italic;}
@@ -409,6 +457,7 @@ h2.center{text-align:center;}
 .footer-brand .brand-text{color:var(--white);}
 .footer-brand .brand-text small{color:rgba(255,255,255,.6);}
 .site-footer a{color:var(--yellow);font-weight:700;}
+.footer-tagline{font-size:.85rem;color:var(--yellow);font-style:italic;font-weight:600;}
 .site-footer .copyright{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:8px;}
 
 /* ---------- Mobile call FAB ---------- */
