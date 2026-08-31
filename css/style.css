@@ -294,52 +294,63 @@ h2.center{text-align:center;}
 
 /* ---------- Menu ---------- */
 .menu{background:var(--white);}
-.menu-grid{
+
+.menu-photo-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:22px;
 }
-.menu-card{
+.menu-photo-card{
+  display:block;
   background:var(--cream);
   border-radius:var(--radius-md);
-  padding:28px 24px;
+  overflow:hidden;
   box-shadow:var(--shadow-card);
   transition:transform .18s ease, box-shadow .18s ease;
-  position:relative;
-  overflow:hidden;
+  color:inherit;
 }
-.menu-card::before{
-  content:"";
-  position:absolute;
-  top:0;left:0;right:0;
-  height:5px;
-  background:linear-gradient(to right,
-    var(--yellow) 0 33.3%,
-    var(--blue) 33.3% 66.6%,
-    var(--red) 66.6% 100%);
+.menu-photo-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
+.menu-photo-card img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+.menu-photo-card.featured{grid-column:span 2;}
+.menu-photo-card.featured img{aspect-ratio:16/9;}
+.menu-photo-body{padding:20px 22px;}
+.menu-photo-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:.4em;}
+.menu-photo-head h3{font-size:1.05rem;margin:0;line-height:1.25;}
+.menu-photo-card.featured .menu-photo-head h3{font-size:1.3rem;}
+.menu-price{
+  font-weight:800;color:var(--red);white-space:nowrap;
+  font-family:'Nunito Sans',sans-serif;font-size:.95rem;
 }
-.menu-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-soft);}
-.menu-card.featured{
-  background:linear-gradient(155deg,var(--blue-deep),#00308f);
-  color:var(--white);
-  grid-column:span 2;
+.menu-photo-body p{margin:0;color:var(--ink-soft);font-size:.9rem;}
+
+.menu-subhead{margin-top:3em;}
+.drinks-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+  margin-bottom:2.5em;
 }
-.menu-card.featured h3,.menu-card.featured .menu-tag{color:var(--white);}
-.menu-card.featured p{color:rgba(255,255,255,.85);}
-.menu-card.featured .menu-icon{background:var(--yellow);color:var(--blue-deep);}
-.menu-icon{
-  width:52px;height:52px;border-radius:14px;
-  background:var(--yellow);
-  color:var(--blue-deep);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.3rem;margin-bottom:1em;
+.drink-card{
+  display:flex;flex-direction:column;align-items:center;gap:.3em;
+  color:inherit;text-align:center;
 }
-.menu-card h3{font-size:1.25rem;margin-bottom:.15em;}
-.menu-tag{
-  font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--red);margin-bottom:.7em;
+.drink-card img{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-card);
+  margin-bottom:.5em;
+  transition:transform .18s ease;
 }
-.menu-card p:last-child{margin-bottom:0;color:var(--ink-soft);font-size:.95rem;}
+.drink-card:hover img{transform:translateY(-4px);}
+.drink-card span:first-of-type{font-weight:700;font-size:.92rem;}
+
+.menu-cta{
+  text-align:center;
+  background:var(--cream-alt);
+  border-radius:var(--radius-lg);
+  padding:36px;
+}
+.menu-cta p{color:var(--ink-soft);max-width:520px;margin:0 auto 1.2em;}
 
 /* ---------- Bakery ---------- */
 .bakery{
@@ -412,6 +423,17 @@ h2.center{text-align:center;}
 
 /* ---------- Reviews ---------- */
 .review-grid{display:flex;justify-content:center;}
+.review-grid.multi{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  max-width:1000px;
+  margin:0 auto;
+}
+.review-grid.multi .review-card{max-width:none;padding:32px;}
+.review-grid.multi .review-card p{font-size:1rem;}
+.reviews-source{text-align:center;color:var(--ink-soft);font-size:.9rem;margin-top:2em;}
+.reviews-source a{color:var(--red);font-weight:800;}
 .review-card{
   max-width:720px;
   background:var(--white);
@@ -521,8 +543,10 @@ h2.center{text-align:center;}
 /* ---------- Responsive ---------- */
 @media (max-width:960px){
   .about-inner,.bakery-inner,.visit-inner{grid-template-columns:1fr;}
-  .menu-grid{grid-template-columns:repeat(2,1fr);}
-  .menu-card.featured{grid-column:span 2;}
+  .menu-photo-grid{grid-template-columns:repeat(2,1fr);}
+  .menu-photo-card.featured{grid-column:span 2;}
+  .drinks-grid{grid-template-columns:repeat(3,1fr);}
+  .review-grid.multi{grid-template-columns:1fr;}
   .bakery-visual{order:-1;}
   .bakery-badge{width:160px;height:160px;font-size:3.6rem;}
   .hero-inner{flex-direction:column;}
@@ -548,8 +572,9 @@ h2.center{text-align:center;}
   .nav-toggle{display:flex;}
   .nav-cta{display:none;}
   .mobile-call-fab{display:flex;}
-  .menu-grid{grid-template-columns:1fr;}
-  .menu-card.featured{grid-column:span 1;}
+  .menu-photo-grid{grid-template-columns:1fr;}
+  .menu-photo-card.featured{grid-column:span 1;}
+  .drinks-grid{grid-template-columns:repeat(2,1fr);}
   .topbar-inner{font-size:.78rem;justify-content:center;text-align:center;}
   section.section{padding:64px 0;}
   .review-card{padding:30px 24px;}
