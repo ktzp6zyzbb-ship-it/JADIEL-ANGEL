@@ -20,4 +20,13 @@ document.addEventListener('DOMContentLoaded', function () {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  var hoursList = document.getElementById('hours-list');
+  if (hoursList) {
+    var today = String(new Date().getDay());
+    var todayRow = hoursList.querySelector('li[data-day="' + today + '"]');
+    if (todayRow) {
+      todayRow.classList.add('today');
+    }
+  }
 });
