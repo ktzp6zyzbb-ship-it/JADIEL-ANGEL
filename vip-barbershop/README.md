@@ -22,10 +22,12 @@ then visit `http://localhost:8000`.
 
 ## To update
 
-- **Hours**: the "Visit" section currently reads "Please call ahead for
-  current hours" — replace with real hours once confirmed.
-- **Services & pricing**: the service list is generic (no confirmed pricing).
-  Update `#services` in `index.html` with real services/prices once known.
+- **Hours** and **services** (Barbering, Hair & Styling, Beard Trim, Head
+  Shave, Hot Towel Shave) are sourced from the shop's Booksy listing:
+  https://booksy.com/en-us/790092_vip-barbershop_barber-shop_134575_richmond
+  — update `#services` / `#hours-list` in `index.html` if either changes.
+- **Pricing** isn't listed anywhere yet — add it to the service cards once
+  known.
 - **Photos**: the gallery currently uses icon placeholders. Swap in real
   photos of the shop and cuts when available.
 - **Reviews**: no review section yet — add one once real customer reviews
