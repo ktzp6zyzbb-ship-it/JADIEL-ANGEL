@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white font-body text-navy-900 antialiased;
+}
+
+::selection {
+  @apply bg-gold text-navy-950;
+}
+
+* {
+  scrollbar-color: #fdbd10 #001a42;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #001a42;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fdbd10;
+}
