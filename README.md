@@ -1,28 +1,18 @@
-# Quiubo Parce — Colombian Restaurant & Bakery
+# Regal Decor — Murals, Wallpaper & More
 
-A static one-page website for Quiubo Parce, a Colombian restaurant and bakery
-at 11045 Hull Street Rd, Midlothian, VA.
+Static one-page site for Regal Decor ("Your home is your castle").
+Licensed & insured. Free estimates: (240) 793-7826 · regaldecorfl.com
 
 ## Structure
 
-- `index.html` — page content (hero, about, menu highlights, bakery, reviews, visit/contact)
-- `css/style.css` — styling
-- `js/script.js` — mobile nav toggle + footer year
+- `index.html` — hero, services (murals, wallpaper + "& More": removal, wall
+  prep, skim coating, custom painting, plastering), how it works, why us,
+  free-estimate section
+- `css/style.css` — gold & burgundy styling based on the business sign
+- `js/script.js` — mobile nav, footer year, estimate form (opens a pre-filled
+  text message to the business phone)
 
-## Running locally
+The castle logo is an inline SVG defined at the top of `index.html`.
 
-No build step required. Open `index.html` directly in a browser, or serve the
-folder with any static server, e.g.:
-
-```
-python3 -m http.server 8000
-```
-
-then visit `http://localhost:8000`.
-
-## To update
-
-- **Hours**: listed in the "Visit" section's `#hours-list` in `index.html`.
-  Today's row is auto-highlighted client-side by `js/script.js`.
-- **Photos**: the site currently uses icon-based visuals instead of real
-  photography. Swap in real photos of the food/storefront when available.
+No build step — open `index.html` in a browser or run
+`python3 -m http.server 8000` in the repo root.

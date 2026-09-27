@@ -21,12 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  var hoursList = document.getElementById('hours-list');
-  if (hoursList) {
-    var today = String(new Date().getDay());
-    var todayRow = hoursList.querySelector('li[data-day="' + today + '"]');
-    if (todayRow) {
-      todayRow.classList.add('today');
-    }
+  // Estimate form: opens a pre-filled text message to Regal Decor.
+  var form = document.getElementById('estimate-form');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = new FormData(form);
+      var body = 'Hi Regal Decor, I would like a free estimate.\n' +
+        'Name: ' + data.get('name') + '\n' +
+        'Phone: ' + data.get('phone') + '\n' +
+        'Service: ' + data.get('service') +
+        (data.get('details') ? '\nDetails: ' + data.get('details') : '');
+      window.location.href = 'sms:+12407937826?&body=' + encodeURIComponent(body);
+    });
   }
 });
