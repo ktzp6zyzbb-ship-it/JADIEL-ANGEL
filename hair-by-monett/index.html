@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hair by Monett | Knotless Braids, Twists, Natural Styles &amp; Weave</title>
-<meta name="description" content="Hair by Monett — knotless braids, braided and twist styles, natural styles, pre-part and weave. See prices, hours and policies, then book online.">
+<title>Hair by Monett | Styled by Aniyah Monet</title>
+<meta name="description" content="Hair by Monett, styled by Aniyah Monet at VCU — knotless braids, braided and twist styles, natural styles, pre-part and weave. See prices, hours and policies, then book online.">
 <meta property="og:title" content="Hair by Monett">
 <meta property="og:description" content="Book your appointment and let's bring your hair vision to life!">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎀</text></svg>">
@@ -26,6 +26,7 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
+  [id] { scroll-margin-top: 84px; }
   body {
     font-family: "Montserrat", system-ui, sans-serif;
     color: var(--ink); background: var(--cream);
@@ -128,29 +129,42 @@
   .on-dots .section-title { background: var(--cream); width: fit-content; margin-inline: auto; padding: 14px 34px 18px; border-radius: 999px; }
 
   /* Services */
-  .services-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: start; }
-  .menu { padding: 36px 36px 28px; }
-  .menu-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 8px; }
-  .menu-head h3 { font-family: "Cormorant Garamond", serif; font-size: 2rem; }
-  .menu-head small { color: var(--ink-soft); font-size: .8rem; }
+  .menu-grid { columns: 2; column-gap: 28px; }
+  .menu { padding: 32px 32px 24px; break-inside: avoid; margin-bottom: 28px; display: block; }
+  .menu-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 4px; }
+  .menu-head h3 { font-family: "Cormorant Garamond", serif; font-size: 1.9rem; line-height: 1.1; }
+  .menu-head .seal { margin: 0; }
   .price-row {
-    display: grid; grid-template-columns: 1fr auto; gap: 4px 16px; align-items: baseline;
-    padding: 18px 0; border-bottom: 1px dashed var(--line);
+    display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; align-items: baseline;
+    padding: 14px 0; border-bottom: 1px dashed var(--line);
   }
   .price-row:last-of-type { border-bottom: 0; }
-  .price-row .name { font-weight: 600; font-size: 1.05rem; }
-  .price-row .price { font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 700; }
-  .price-row .time { grid-column: 1 / -1; color: var(--ink-soft); font-size: .85rem; display: flex; align-items: center; gap: 6px; }
-  .menu-note { margin-top: 14px; font-size: .82rem; color: var(--ink-soft); font-style: italic; }
-  .cats { display: grid; gap: 14px; }
-  .cat {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
-    padding: 20px 22px; transition: transform .2s;
+  .price-row .name { font-weight: 600; font-size: 1rem; }
+  .price-row .price { font-family: "Cormorant Garamond", serif; font-size: 1.6rem; font-weight: 700; }
+  .price-row .time { grid-column: 1 / -1; color: var(--ink-soft); font-size: .82rem; display: flex; align-items: center; gap: 6px; }
+  .menu-note { margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: .8rem; color: var(--ink-soft); font-style: italic; }
+  .menu-book { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: .74rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .menu-book:hover i { transform: translateX(4px); }
+  .menu-book i { transition: transform .2s; }
+  .menu-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
+  .menu-tabs a {
+    padding: 8px 16px; border: 1.5px solid var(--ink); border-radius: 999px;
+    font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, color .2s;
   }
-  .cat:hover { transform: translateX(4px); }
-  .cat h4 { font-size: 1rem; font-weight: 600; }
-  .cat p { font-size: .78rem; color: var(--ink-soft); }
-  .cat .go { font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+  .menu-tabs a:hover { background: var(--ink); color: var(--paper); }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1.2fr .8fr; gap: 44px; align-items: center; padding: 48px; position: relative; }
+  .about .caps.label { font-size: 1.3rem; display: block; }
+  .about .script.name { font-size: clamp(3.4rem, 7vw, 5rem); display: block; margin: 4px 0 18px; }
+  .about p { color: var(--ink-soft); margin-bottom: 14px; }
+  .about .loc { display: inline-flex; align-items: center; gap: 8px; font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); margin-top: 6px; }
+  .arch-photo {
+    border-radius: 999px 999px 12px 12px; overflow: hidden; border: 2px solid var(--ink);
+    aspect-ratio: 4 / 5; max-width: 340px; width: 100%; justify-self: center; box-shadow: var(--shadow);
+  }
+  .arch-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 30%; }
+  .about .bow { top: auto; bottom: -18px; right: -14px; }
 
   /* Hours + contact */
   .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
@@ -273,7 +287,9 @@
     .hero p.lead { margin-inline: auto; }
     .hero-actions, .hero-meta { justify-content: center; }
     .hero-photos { height: 330px; max-width: 380px; width: 100%; margin: 0 auto; }
-    .services-grid, .info-grid, .pay-wrap { grid-template-columns: 1fr; }
+    .info-grid, .pay-wrap, .about { grid-template-columns: 1fr; }
+    .about { text-align: center; padding: 36px 22px; }
+    .menu-grid { columns: 1; }
     .policy-grid { grid-template-columns: repeat(2, 1fr); }
     .before-grid { grid-template-columns: repeat(2, 1fr); }
     .pay-copy { text-align: center; }
@@ -293,7 +309,7 @@
     .hero { padding: 32px 0; }
     .dots { background-size: 40px 40px; background-position: 0 0, 20px 20px;
       background-image: radial-gradient(var(--ink) 3.5px, transparent 4px), radial-gradient(var(--ink) 3.5px, transparent 4px); }
-    .menu { padding: 26px 20px 20px; }
+    .menu { padding: 24px 20px 18px; }
     .info-card { padding: 32px 20px; }
     .policy-grid, .before-grid, .review-grid { grid-template-columns: 1fr; }
     .before { padding: 36px 18px; }
@@ -325,6 +341,7 @@
       <span class="script">Hair by Monett</span>
     </a>
     <nav class="site-nav" id="site-nav">
+      <a href="#about">About</a>
       <a href="#services">Services</a>
       <a href="#hours">Hours</a>
       <a href="#policies">Policies</a>
@@ -345,8 +362,8 @@
       <div class="card hero-card reveal">
         <div>
           <h1 class="script">Hair by Monett</h1>
-          <p class="caps sub">Braids &middot; Twists &middot; Natural Styles &middot; Weave</p>
-          <p class="lead">Book your appointment and let&rsquo;s bring your hair vision to life! Neat, detailed, quality work, done with care.</p>
+          <p class="caps sub">Styled by Aniyah Monet</p>
+          <p class="lead">Knotless braids, twists, natural styles, pre-part and weave. Book your appointment and let&rsquo;s bring your hair vision to life!</p>
           <div class="hero-actions">
             <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener" class="btn btn-dark">
               <i class="fa-regular fa-calendar-check"></i> Book Appointment
@@ -355,6 +372,7 @@
           </div>
           <div class="hero-meta">
             <span><i class="fa-solid fa-phone"></i> <a href="tel:+14344842294">434-484-2294</a></span>
+            <span><i class="fa-solid fa-location-dot"></i> VCU &middot; Richmond, VA</span>
             <span><i class="fa-brands fa-instagram"></i> <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener">@_hairbyymonett_</a></span>
           </div>
         </div>
@@ -368,56 +386,85 @@
     </div>
   </section>
 
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <div class="card about reveal">
+        <div>
+          <span class="caps label">Your Hair Stylist</span>
+          <span class="script name">Aniyah Monet</span>
+          <p>Hey guys! ✨ I&rsquo;m a college student + hairstylist chasing one client at a time 🎓 I&rsquo;m currently balancing school, classes and doing hair, so my schedule may vary.</p>
+          <p>Just a little reminder 🖤 I&rsquo;m working on my speed as a braider, so please be patient with me as I continue learning and growing. Thank you in advance for your patience 🫶🏾</p>
+          <p>Book your appointment and let&rsquo;s bring your hair vision to life!</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Virginia Commonwealth University</span>
+        </div>
+        <div class="arch-photo"><img src="img/aniyah.jpg" alt="Aniyah Monet, hairstylist"></div>
+        <span class="bow" aria-hidden="true">🎀</span>
+      </div>
+    </div>
+  </section>
+
   <!-- Services -->
   <section id="services">
     <div class="container">
       <div class="section-title reveal">
         <span class="script">Services</span>
         <span class="caps">&amp; Pricing</span>
+        <p>Prices and times are starting points. A <strong>$10 non-refundable deposit</strong> is required to book.</p>
       </div>
-
-      <div class="services-grid">
-        <div class="card menu reveal">
-          <div class="menu-head">
-            <h3>Knotless Braids</h3>
-            <small>Size &middot; Time &middot; Price</small>
-          </div>
-          <div class="price-row">
-            <span class="name">Smedium</span><span class="price">$160</span>
-            <span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs 30 min</span>
-          </div>
-          <div class="price-row">
-            <span class="name">Medium</span><span class="price">$145</span>
-            <span class="time"><i class="fa-regular fa-clock"></i> About 6 hrs 40 min</span>
-          </div>
-          <div class="price-row">
-            <span class="name">Large</span><span class="price">$120</span>
-            <span class="time"><i class="fa-regular fa-clock"></i> About 5 hrs</span>
-          </div>
-          <div class="price-row">
-            <span class="name">Jumbo</span><span class="price">$90</span>
-            <span class="time"><i class="fa-regular fa-clock"></i> About 5 hrs</span>
-          </div>
+      <nav class="menu-tabs reveal" aria-label="Service categories">
+        <a href="#menu-knotless">Knotless Braids</a>
+        <a href="#menu-natural">Natural Styles</a>
+        <a href="#menu-twists">Other Braided / Twist Styles</a>
+        <a href="#menu-prepart">Pre Part</a>
+        <a href="#menu-weave">Weave</a>
+      </nav>
+      <div class="menu-grid">
+        <div class="card menu reveal" id="menu-knotless">
+          <div class="menu-head"><h3>Knotless Braids</h3><span class="seal seal-sm"><i class="fa-solid fa-braille"></i></span></div>
+          <div class="price-row"><span class="name">Smedium</span><span class="price">$160</span><span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs 30 min</span></div>
+          <div class="price-row"><span class="name">Medium</span><span class="price">$145</span><span class="time"><i class="fa-regular fa-clock"></i> About 6 hrs 40 min</span></div>
+          <div class="price-row"><span class="name">Large</span><span class="price">$120</span><span class="time"><i class="fa-regular fa-clock"></i> About 5 hrs</span></div>
+          <div class="price-row"><span class="name">Jumbo</span><span class="price">$90</span><span class="time"><i class="fa-regular fa-clock"></i> About 5 hrs</span></div>
           <p class="menu-note">Time changes based on length, design, boho and sizing.</p>
+          <a class="menu-book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">Book this service <i class="fa-solid fa-arrow-right"></i></a>
         </div>
-
-        <div class="cats">
-          <a class="card cat reveal" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">
-            <div><h4>Natural Styles</h4><p>See styles &amp; prices when booking</p></div>
-            <span class="go">Book <i class="fa-solid fa-arrow-right"></i></span>
-          </a>
-          <a class="card cat reveal" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">
-            <div><h4>Other Braided / Twist Styles</h4><p>See styles &amp; prices when booking</p></div>
-            <span class="go">Book <i class="fa-solid fa-arrow-right"></i></span>
-          </a>
-          <a class="card cat reveal" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">
-            <div><h4>Pre Part</h4><p>See options &amp; prices when booking</p></div>
-            <span class="go">Book <i class="fa-solid fa-arrow-right"></i></span>
-          </a>
-          <a class="card cat reveal" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">
-            <div><h4>Weave</h4><p>See styles &amp; prices when booking</p></div>
-            <span class="go">Book <i class="fa-solid fa-arrow-right"></i></span>
-          </a>
+        <div class="card menu reveal" id="menu-natural">
+          <div class="menu-head"><h3>Natural Styles</h3><span class="seal seal-sm"><i class="fa-solid fa-leaf"></i></span></div>
+          <div class="price-row"><span class="name">Fulani</span><span class="price">$35</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs</span></div>
+          <div class="price-row"><span class="name">Small Twist</span><span class="price">$75</span><span class="time"><i class="fa-regular fa-clock"></i> About 3 hrs</span></div>
+          <div class="price-row"><span class="name">Medium Twist</span><span class="price">$65</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs 10 min</span></div>
+          <p class="menu-note">Twists: time depends on the length of the hair. Fulani: time depends on how many braids are in the front and how small they are.</p>
+          <a class="menu-book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="card menu reveal" id="menu-twists">
+          <div class="menu-head"><h3>Other Braided / Twist Styles</h3><span class="seal seal-sm"><i class="fa-solid fa-infinity"></i></span></div>
+          <div class="price-row"><span class="name">Fulani Braids</span><span class="price">$150</span><span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs</span></div>
+          <div class="price-row"><span class="name">Fulani Twist</span><span class="price">$135</span><span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs</span></div>
+          <div class="price-row"><span class="name">Island Twist</span><span class="price">$115</span><span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs</span></div>
+          <div class="price-row"><span class="name">Passion Twist</span><span class="price">$100</span><span class="time"><i class="fa-regular fa-clock"></i> About 7 hrs</span></div>
+          <p class="menu-note">Time changes based on length, design, boho and sizing.</p>
+          <a class="menu-book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="card menu reveal" id="menu-prepart">
+          <div class="menu-head"><h3>Pre Part</h3><span class="seal seal-sm"><i class="fa-solid fa-grip-lines"></i></span></div>
+          <div class="price-row"><span class="name">X-Small</span><span class="price">$70</span><span class="time"><i class="fa-regular fa-clock"></i> About 3 hrs 40 min</span></div>
+          <div class="price-row"><span class="name">Small</span><span class="price">$70</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs</span></div>
+          <div class="price-row"><span class="name">Smedium</span><span class="price">$60</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs</span></div>
+          <div class="price-row"><span class="name">Medium</span><span class="price">$50</span><span class="time"><i class="fa-regular fa-clock"></i> About 1 hr</span></div>
+          <div class="price-row"><span class="name">Large</span><span class="price">$40</span><span class="time"><i class="fa-regular fa-clock"></i> About 1 hr</span></div>
+          <div class="price-row"><span class="name">Braid Down</span><span class="price">$35</span><span class="time"><i class="fa-regular fa-clock"></i> About 1 hr</span></div>
+          <p class="menu-note">X-Small, Small and Smedium: time depends on the length of the hair.</p>
+          <a class="menu-book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">Book this service <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+        <div class="card menu reveal" id="menu-weave">
+          <div class="menu-head"><h3>Weave</h3><span class="seal seal-sm"><i class="fa-solid fa-crown"></i></span></div>
+          <div class="price-row"><span class="name">Fulani Quick Weave</span><span class="price">$110</span><span class="time"><i class="fa-regular fa-clock"></i> About 3 hrs 20 min</span></div>
+          <div class="price-row"><span class="name">Half Up Half Down</span><span class="price">$85</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs 20 min</span></div>
+          <div class="price-row"><span class="name">Ponytail</span><span class="price">$45</span><span class="time"><i class="fa-regular fa-clock"></i> About 1 hr 40 min</span></div>
+          <div class="price-row"><span class="name">Quick Weave</span><span class="price">$100</span><span class="time"><i class="fa-regular fa-clock"></i> About 2 hrs 40 min</span></div>
+          <div class="price-row"><span class="name">Stitch Braid Quick Weave</span><span class="price">$75</span><span class="time"><i class="fa-regular fa-clock"></i> About 3 hrs 20 min &middot; two braids on each side (4 total)</span></div>
+          <a class="menu-book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">Book this service <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
     </div>
