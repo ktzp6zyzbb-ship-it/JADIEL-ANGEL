@@ -186,8 +186,12 @@ p { margin: 0 0 1em; }
 
 /* About */
 .about { grid-template-columns: .8fr 1.2fr; }
-.about-photo { margin: 0; }
-.about-photo img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); }
+.about-photo { position: relative; margin: 0; }
+.about-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 35% 30%; border-radius: var(--radius); }
+.about-photo figcaption {
+  position: absolute; left: 16px; bottom: 16px; background: rgba(14,14,16,.85); color: #fff;
+  padding: .4em .9em; border-radius: 999px; font-size: .85rem; font-weight: 700;
+}
 
 /* Book */
 .book { max-width: 720px; }
