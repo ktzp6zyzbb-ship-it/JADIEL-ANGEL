@@ -8,14 +8,6 @@ const CLOSE_HOUR = 20;
 const DAYS_OFF = [];
 const BOOK_AHEAD_DAYS = 45;
 
-// Online booking database (Supabase). Fill in the Project URL and the
-// publishable/anon key from Supabase -> Project Settings -> API. Both are
-// meant to be public. Leave blank to take booking requests by text only.
-const BOOKING_DB = {
-  url: "",
-  key: "",
-};
-
 // Mobile nav
 const toggle = document.getElementById("nav-toggle");
 const nav = document.getElementById("site-nav");
@@ -54,30 +46,39 @@ const fmtDate = (d) => d.toLocaleDateString("en-US", { weekday: "long", month: "
 const isoDate = (d) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
-// Taken slots, keyed "YYYY-MM-DD|hour", loaded from the booking database.
-const dbOn = Boolean(BOOKING_DB.url && BOOKING_DB.key);
+// Taken slots, keyed "YYYY-MM-DD|hour". Jadiel lists booked times in
+// booked.txt (one per line, e.g. "2026-10-03 2:00 PM"); they show as Booked.
 const taken = new Set();
 const slotKey = (d, h) => `${isoDate(d)}|${h}`;
 const isTaken = (d, h) => taken.has(slotKey(d, h));
 
-function dbHeaders() {
-  const h = { apikey: BOOKING_DB.key, "Content-Type": "application/json" };
-  // Legacy anon keys are JWTs and also go in the Authorization header.
-  if (BOOKING_DB.key.startsWith("eyJ")) h.Authorization = `Bearer ${BOOKING_DB.key}`;
-  return h;
+function parseBooked(line) {
+  const t = line.split("#")[0].trim();
+  if (!t) return null;
+  let y, mo, day;
+  let m = t.match(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+(.+)$/);
+  if (m) [, y, mo, day] = m;
+  else if ((m = t.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})\s+(.+)$/))) {
+    [, mo, day, y] = m;
+    if (y.length === 2) y = `20${y}`;
+  } else return null;
+  const tm = m[4].match(/^(\d{1,2})(?::00)?\s*([ap])\.?\s*m?\.?$/i);
+  if (!tm) return null;
+  let h = Number(tm[1]) % 12;
+  if (tm[2].toLowerCase() === "p") h += 12;
+  return `${y}-${String(mo).padStart(2, "0")}-${String(day).padStart(2, "0")}|${h}`;
 }
 
 async function loadTaken() {
-  if (!dbOn) return;
   try {
-    const res = await fetch(
-      `${BOOKING_DB.url}/rest/v1/taken_slots?select=slot_date,slot_hour&slot_date=gte.${isoDate(today)}`,
-      { headers: dbHeaders(), cache: "no-store" }
-    );
+    const res = await fetch("booked.txt", { cache: "no-store" });
     if (!res.ok) throw new Error(res.status);
-    const rows = await res.json();
+    const lines = (await res.text()).split(/\r?\n/);
     taken.clear();
-    rows.forEach((r) => taken.add(`${r.slot_date}|${r.slot_hour}`));
+    lines.forEach((line) => {
+      const key = parseBooked(line);
+      if (key) taken.add(key);
+    });
     if (pickedDate && pickedTime !== null && isTaken(pickedDate, pickedTime)) pickedTime = null;
     renderCalendar();
     renderSlots();
@@ -200,21 +201,9 @@ loadTaken();
 // Keep taken times fresh while the page is open.
 setInterval(() => { if (document.visibilityState === "visible") loadTaken(); }, 60000);
 
-// Booking: lock the slot in the database, then text Jadiel the details
+// Booking request -> text message to Jadiel
 const form = document.getElementById("book-form");
 const msg = document.getElementById("form-msg");
-const submitBtn = form.querySelector('button[type="submit"]');
-
-async function saveBooking(fields) {
-  const res = await fetch(`${BOOKING_DB.url}/rest/v1/bookings`, {
-    method: "POST",
-    headers: { ...dbHeaders(), Prefer: "return=minimal" },
-    body: JSON.stringify(fields),
-  });
-  if (res.ok) return "booked";
-  if (res.status === 409) return "taken";
-  throw new Error(`Booking failed (${res.status})`);
-}
 
 function showMessage(introText, text) {
   const smsHref = `sms:${PHONE}?&body=${encodeURIComponent(text)}`;
@@ -249,62 +238,21 @@ function showMessage(introText, text) {
   msg.append(intro, pre, actions);
 }
 
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (!pickedDate || pickedTime === null) {
     pickerError(pickedDate ? "Pick a time slot to continue." : "Pick a day and a time slot to continue.");
     return;
   }
   const d = new FormData(form);
-  const when = `${fmtDate(pickedDate)} at ${fmtTime(pickedTime)}`;
   const text =
-    `Hey Jadiel! I just booked a cut.\n` +
+    `Hey Jadiel! I'd like to book a cut.\n` +
     `Name: ${d.get("name")}\n` +
     `Phone: ${d.get("phone")}\n` +
     `Service: ${d.get("service")}\n` +
     `Where: ${d.get("where")}\n` +
-    `When: ${when}`;
-
-  if (!dbOn) {
-    showMessage("Send this text to (571) 315-9154:", text.replace("I just booked", "I'd like to book"));
-    return;
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Booking…";
-  try {
-    const result = await saveBooking({
-      slot_date: isoDate(pickedDate),
-      slot_hour: pickedTime,
-      name: String(d.get("name")).trim(),
-      phone: String(d.get("phone")).trim(),
-      service: d.get("service"),
-      location: d.get("where"),
-    });
-    if (result === "taken") {
-      taken.add(slotKey(pickedDate, pickedTime));
-      pickedTime = null;
-      await loadTaken();
-      renderCalendar();
-      renderSlots();
-      pickerError("Sorry, someone just booked that time. Please pick another.");
-      return;
-    }
-    taken.add(slotKey(pickedDate, pickedTime));
-    pickedDate = null;
-    pickedTime = null;
-    renderCalendar();
-    renderSlots();
-    form.reset();
-    showMessage(`You're booked for ${when}! Your time is locked in. Send Jadiel this text so he has your details:`, text);
-  } catch (err) {
-    console.warn(err);
-    showMessage("We couldn't save your booking online. Text this to (571) 315-9154 to book instead:",
-      text.replace("I just booked", "I'd like to book"));
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = "Book This Time";
-  }
+    `When: ${fmtDate(pickedDate)} at ${fmtTime(pickedTime)}`;
+  showMessage("Send this text to (571) 315-9154. Jadiel will confirm your time:", text);
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
