@@ -253,9 +253,25 @@
             <option value="House call to my dorm/apartment">House call — my dorm / apartment</option>
           </select>
         </label>
-        <label>Preferred day &amp; time
-          <input type="text" name="when" placeholder="e.g. Friday after 3pm" required>
-        </label>
+        <fieldset class="picker">
+          <legend>Pick a day &amp; time</legend>
+          <div class="picker-grid">
+            <div class="cal">
+              <div class="cal-head">
+                <button type="button" class="cal-nav" id="cal-prev" aria-label="Previous month"><span aria-hidden="true">‹</span></button>
+                <span class="cal-month" id="cal-month"></span>
+                <button type="button" class="cal-nav" id="cal-next" aria-label="Next month"><span aria-hidden="true">›</span></button>
+              </div>
+              <div class="cal-days" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+              <div class="cal-grid" id="cal-grid"></div>
+            </div>
+            <div class="slots-wrap">
+              <p class="slots-title" id="slots-title">Choose a day first</p>
+              <div class="slots" id="slots"></div>
+            </div>
+          </div>
+          <p class="picker-picked" id="picker-picked" aria-live="polite"></p>
+        </fieldset>
         <button type="submit" class="btn btn-primary btn-lg">Send Booking Request</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>

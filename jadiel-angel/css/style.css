@@ -257,7 +257,43 @@ main .note { color: var(--text); }
 }
 .book-form input::placeholder { color: #7d7770; }
 .book-form input:focus, .book-form select:focus { outline: 2px solid var(--red); outline-offset: 1px; }
-.book-form button { grid-column: 1 / -1; }
+.book-form > button { grid-column: 1 / -1; }
+
+/* Calendar + time slots */
+.picker { grid-column: 1 / -1; border: 0; margin: 0; padding: 0; min-width: 0; }
+.picker legend { font-weight: 700; font-size: .9rem; padding: 0; margin-bottom: 10px; }
+.picker-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.cal, .slots-wrap { background: #111113; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 14px; min-width: 0; }
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.cal-month { font-family: var(--display); font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; }
+.cal-nav {
+  width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(255,255,255,.18);
+  background: transparent; color: var(--text); cursor: pointer; display: grid; place-items: center; font-size: 1.3rem; line-height: 1;
+}
+.cal-nav:hover:not(:disabled) { border-color: var(--red); color: var(--red-2); }
+.cal-nav:disabled { opacity: .3; cursor: default; }
+.cal-days, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; text-align: center; }
+.cal-days span { font-size: .72rem; font-weight: 700; color: var(--muted); letter-spacing: .05em; padding-bottom: 4px; }
+.cal-day {
+  aspect-ratio: 1; border-radius: 8px; border: 1px solid transparent; background: rgba(255,255,255,.05);
+  color: var(--text); font: 700 .9rem var(--body); cursor: pointer; font-variant-numeric: tabular-nums;
+}
+.cal-day:hover:not(:disabled) { border-color: var(--red); }
+.cal-day.today { border-color: rgba(255,255,255,.35); }
+.cal-day.selected { background: var(--red); border-color: var(--red); color: #fff; }
+.cal-day:disabled { background: transparent; color: rgba(255,255,255,.2); cursor: default; }
+.slots-title { font-weight: 700; margin: 4px 0 12px; color: var(--text); }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(92px, 1fr)); gap: 8px; }
+.slot {
+  padding: 10px 6px; border-radius: 8px; border: 1px solid rgba(255,255,255,.18); background: transparent;
+  color: var(--text); font: 700 .88rem var(--body); cursor: pointer; font-variant-numeric: tabular-nums;
+}
+.slot:hover { border-color: var(--red); }
+.slot.selected { background: var(--red); border-color: var(--red); color: #fff; }
+.cal-day:focus-visible, .slot:focus-visible, .cal-nav:focus-visible { outline: 2px solid var(--red-2); outline-offset: 2px; }
+.picker-picked { margin: 12px 0 0; font-weight: 700; color: var(--text); }
+.picker-picked:empty { display: none; }
+.picker-picked.error { color: var(--red-2); }
 .form-msg { grid-column: 1 / -1; margin: 0; font-size: .95rem; }
 .form-msg:empty { display: none; }
 .form-msg pre {
@@ -296,6 +332,7 @@ main .note { color: var(--text); }
   .fact:nth-child(2) { border-right: 0; }
   .fact:nth-child(-n+2) { border-bottom: 1px solid rgba(0,0,0,.25); }
   .book-form { grid-template-columns: 1fr; padding: 22px; }
+  .picker-grid { grid-template-columns: 1fr; }
   .pay-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
