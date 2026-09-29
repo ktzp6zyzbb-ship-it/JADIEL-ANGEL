@@ -130,6 +130,25 @@ main .lead { color: #e2ddd6; }
   padding: .4em .9em; border-radius: 999px; font-size: .85rem; font-weight: 700; color: #fff;
 }
 
+/* Work preview strip */
+.work-strip { padding: 0 0 clamp(40px, 6vw, 64px); }
+.work-strip-link {
+  display: grid; grid-template-columns: auto 1fr; gap: 32px; align-items: center;
+  padding: 24px; border-radius: var(--radius); text-decoration: none;
+  background: var(--card); border: 1px solid rgba(224,40,47,.45);
+  transition: border-color .2s, transform .2s;
+}
+.work-strip-link:hover { border-color: var(--red-2); transform: translateY(-3px); }
+.work-strip h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: .3em; }
+.work-strip .eyebrow { margin-bottom: .4em; }
+.work-strip-cta { display: inline-flex; align-items: center; gap: .5em; font-weight: 700; color: var(--red-2); }
+.work-thumbs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+.work-thumbs img {
+  width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px;
+  border: 1px solid var(--line); transition: transform .3s;
+}
+.work-strip-link:hover .work-thumbs img { transform: scale(1.03); }
+
 /* Facts */
 .facts { background: linear-gradient(90deg, var(--red-deep), var(--red), var(--red-deep)); }
 .facts-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -263,6 +282,7 @@ main .note { color: var(--text); }
   .hero-photo { max-width: 420px; }
   .price-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
+  .work-strip-link { grid-template-columns: 1fr; gap: 18px; }
   .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; grid-template-areas: "a b" "a c" "d e" "d e"; }
   .about-photo { max-width: 420px; }
 }
@@ -283,6 +303,8 @@ main .note { color: var(--text); }
   .pay-list { grid-template-columns: 1fr; }
 }
 @media (max-width: 520px) {
+  .work-thumbs { grid-template-columns: repeat(3, 1fr); }
+  .work-thumbs img:nth-child(n+4) { display: none; }
   .steps { grid-template-columns: 1fr; }
   .contact-row .btn { flex: 1 1 100%; }
 }
