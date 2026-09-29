@@ -206,6 +206,19 @@ main .note { color: var(--text); }
 .venmo { background: #008cff; }
 .cashapp { background: #00c244; }
 .zelle { background: #6d1ed4; }
+.cash { background: #2e7d32; font-size: .75rem; }
+.pay-list li.wide { grid-column: 1 / -1; }
+
+/* Payment chips in hero */
+.hero-pay { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 12px; margin-top: 1.4em; }
+.hero-pay-label { font-size: .8rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+.hero-pay ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.hero-pay li {
+  display: inline-flex; align-items: center; gap: .45em; padding: .35em .8em .35em .4em; border-radius: 999px;
+  background: var(--card); border: 1px solid var(--line); font-size: .88rem; font-weight: 700;
+}
+.hero-pay .pay-dot { width: 22px; height: 22px; border-radius: 50%; font-size: .72rem; }
+.hero-pay .fa-apple { width: 22px; text-align: center; font-size: 1.05rem; }
 
 /* About */
 .about { grid-template-columns: 1.2fr .8fr; }
