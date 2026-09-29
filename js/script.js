@@ -8,6 +8,35 @@ const CLOSE_HOUR = 20;
 const DAYS_OFF = [];
 const BOOK_AHEAD_DAYS = 45;
 
+// Automatic booking (Supabase). Paste the Project URL and the publishable
+// (or anon public) key from Supabase -> Project Settings -> API. Both are
+// meant to be public. While blank, the site uses booked.txt + text requests.
+const BOOKING_DB = {
+  url: "",
+  key: "",
+};
+const dbOn = Boolean(BOOKING_DB.url && BOOKING_DB.key);
+
+async function rpc(fn, args = {}) {
+  const headers = { apikey: BOOKING_DB.key, "Content-Type": "application/json" };
+  // Legacy anon keys are JWTs and also go in the Authorization header.
+  if (BOOKING_DB.key.startsWith("eyJ")) headers.Authorization = `Bearer ${BOOKING_DB.key}`;
+  const res = await fetch(`${BOOKING_DB.url}/rest/v1/rpc/${fn}`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(args),
+    cache: "no-store",
+  });
+  const body = await res.json().catch(() => null);
+  if (!res.ok) {
+    const err = new Error((body && body.message) || `Request failed (${res.status})`);
+    err.status = res.status;
+    err.code = body && body.code;
+    throw err;
+  }
+  return body;
+}
+
 // Mobile nav
 const toggle = document.getElementById("nav-toggle");
 const nav = document.getElementById("site-nav");
@@ -46,8 +75,8 @@ const fmtDate = (d) => d.toLocaleDateString("en-US", { weekday: "long", month: "
 const isoDate = (d) =>
   `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 
-// Taken slots, keyed "YYYY-MM-DD|hour". Jadiel lists booked times in
-// booked.txt (one per line, e.g. "2026-10-03 2:00 PM"); they show as Booked.
+// Taken slots, keyed "YYYY-MM-DD|hour". With the database on, they come from
+// bookings; otherwise Jadiel lists them in booked.txt ("2026-10-03 2:00 PM").
 const taken = new Set();
 const slotKey = (d, h) => `${isoDate(d)}|${h}`;
 const isTaken = (d, h) => taken.has(slotKey(d, h));
@@ -69,16 +98,21 @@ function parseBooked(line) {
   return `${y}-${String(mo).padStart(2, "0")}-${String(day).padStart(2, "0")}|${h}`;
 }
 
+async function fetchTakenKeys() {
+  if (dbOn) {
+    const rows = await rpc("get_taken_slots", { p_from: isoDate(today) });
+    return rows.map((r) => `${r.slot_date}|${r.slot_hour}`);
+  }
+  const res = await fetch("booked.txt", { cache: "no-store" });
+  if (!res.ok) throw new Error(res.status);
+  return (await res.text()).split(/\r?\n/).map(parseBooked).filter(Boolean);
+}
+
 async function loadTaken() {
   try {
-    const res = await fetch("booked.txt", { cache: "no-store" });
-    if (!res.ok) throw new Error(res.status);
-    const lines = (await res.text()).split(/\r?\n/);
+    const keys = await fetchTakenKeys();
     taken.clear();
-    lines.forEach((line) => {
-      const key = parseBooked(line);
-      if (key) taken.add(key);
-    });
+    keys.forEach((k) => taken.add(k));
     if (pickedDate && pickedTime !== null && isTaken(pickedDate, pickedTime)) pickedTime = null;
     renderCalendar();
     renderSlots();
@@ -201,58 +235,179 @@ loadTaken();
 // Keep taken times fresh while the page is open.
 setInterval(() => { if (document.visibilityState === "visible") loadTaken(); }, 60000);
 
-// Booking request -> text message to Jadiel
+// Booking
 const form = document.getElementById("book-form");
 const msg = document.getElementById("form-msg");
+const submitBtn = form.querySelector('button[type="submit"]');
+const pageUrl = `${location.origin}${location.pathname}`;
 
-function showMessage(introText, text) {
+function copyButton(label, value) {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.className = "btn btn-ghost";
+  b.textContent = label;
+  b.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(value);
+      b.textContent = "Copied!";
+    } catch {
+      b.textContent = "Select & copy the text above";
+    }
+  });
+  return b;
+}
+
+function showMessage(introText, text, { autoOpen = true, extra = null } = {}) {
   const smsHref = `sms:${PHONE}?&body=${encodeURIComponent(text)}`;
   // Phones open the Messages app right away; on a computer, show the text to copy.
-  if (window.matchMedia("(pointer: coarse)").matches) window.location.href = smsHref;
+  if (autoOpen && window.matchMedia("(pointer: coarse)").matches) window.location.href = smsHref;
 
   msg.innerHTML = "";
   const intro = document.createElement("span");
   intro.className = "msg-intro";
   intro.textContent = introText;
+  msg.append(intro);
+  if (extra) msg.append(extra);
   const pre = document.createElement("pre");
   pre.textContent = text;
   const open = document.createElement("a");
   open.className = "btn btn-primary";
   open.href = smsHref;
-  open.textContent = "Open in Messages";
-  const copy = document.createElement("button");
-  copy.type = "button";
-  copy.className = "btn btn-ghost";
-  copy.textContent = "Copy message";
-  copy.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(text);
-      copy.textContent = "Copied!";
-    } catch {
-      copy.textContent = "Select & copy the text above";
-    }
-  });
+  open.textContent = autoOpen ? "Open in Messages" : "Text Jadiel your details";
   const actions = document.createElement("div");
   actions.className = "msg-actions";
-  actions.append(open, copy);
-  msg.append(intro, pre, actions);
+  actions.append(open, copyButton("Copy message", text));
+  msg.append(pre, actions);
+  msg.scrollIntoView({ behavior: "smooth", block: "nearest" });
 }
 
-form.addEventListener("submit", (e) => {
+function cancelLinkBox(link) {
+  const box = document.createElement("div");
+  box.className = "cancel-link";
+  const p = document.createElement("p");
+  p.textContent = "Need to cancel? Use this link any time and your slot opens back up. Save it:";
+  const a = document.createElement("a");
+  a.href = link;
+  a.textContent = link;
+  box.append(p, a, copyButton("Copy cancel link", link));
+  return box;
+}
+
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!pickedDate || pickedTime === null) {
     pickerError(pickedDate ? "Pick a time slot to continue." : "Pick a day and a time slot to continue.");
     return;
   }
   const d = new FormData(form);
-  const text =
-    `Hey Jadiel! I'd like to book a cut.\n` +
+  const when = `${fmtDate(pickedDate)} at ${fmtTime(pickedTime)}`;
+  const details =
     `Name: ${d.get("name")}\n` +
     `Phone: ${d.get("phone")}\n` +
     `Service: ${d.get("service")}\n` +
     `Where: ${d.get("where")}\n` +
-    `When: ${fmtDate(pickedDate)} at ${fmtTime(pickedTime)}`;
-  showMessage("Send this text to (571) 315-9154. Jadiel will confirm your time:", text);
+    `When: ${when}`;
+
+  if (!dbOn) {
+    showMessage("Send this text to (571) 315-9154. Jadiel will confirm your time:",
+      `Hey Jadiel! I'd like to book a cut.\n${details}`);
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Booking…";
+  try {
+    const token = await rpc("book_slot", {
+      p_date: isoDate(pickedDate),
+      p_hour: pickedTime,
+      p_name: String(d.get("name")).trim(),
+      p_phone: String(d.get("phone")).trim(),
+      p_service: d.get("service"),
+      p_location: d.get("where"),
+    });
+    const cancelLink = `${pageUrl}?cancel=${token}#book`;
+    taken.add(slotKey(pickedDate, pickedTime));
+    pickedDate = null;
+    pickedTime = null;
+    form.reset();
+    renderCalendar();
+    renderSlots();
+    showMessage(`You're booked for ${when}! That time is now locked for you.`,
+      `Hey Jadiel! I just booked a cut.\n${details}\nCancel link: ${cancelLink}`,
+      { autoOpen: false, extra: cancelLinkBox(cancelLink) });
+  } catch (err) {
+    if (err.status === 409) {
+      taken.add(slotKey(pickedDate, pickedTime));
+      pickedTime = null;
+      await loadTaken();
+      renderCalendar();
+      renderSlots();
+      pickerError("Sorry, someone just booked that time. Please pick another.");
+    } else if (/too many/i.test(err.message)) {
+      pickerError("You already have 2 upcoming bookings. Text (571) 315-9154 if you need more.");
+    } else if (/no longer available/i.test(err.message)) {
+      await loadTaken();
+      pickerError("That time isn't available anymore. Please pick another.");
+    } else {
+      console.warn(err);
+      showMessage("We couldn't save your booking online. Text this to (571) 315-9154 to book instead:",
+        `Hey Jadiel! I'd like to book a cut.\n${details}`);
+    }
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Book This Time";
+  }
 });
+
+// Cancel links: ?cancel=<token>
+const cancelBox = document.getElementById("cancel-box");
+const cancelToken = new URLSearchParams(location.search).get("cancel");
+if (dbOn) submitBtn.textContent = "Book This Time";
+if (cancelToken && cancelBox) {
+  const cancelText = document.getElementById("cancel-text");
+  const cancelBtn = document.getElementById("cancel-btn");
+  const keepBtn = document.getElementById("cancel-keep");
+  cancelBox.hidden = false;
+  document.getElementById("book").scrollIntoView();
+  const done = (text) => {
+    cancelText.textContent = text;
+    cancelBtn.hidden = true;
+    keepBtn.textContent = "Book a new time";
+    history.replaceState(null, "", `${location.pathname}#book`);
+  };
+  if (!dbOn) {
+    done("Online cancel isn't set up yet. Text (571) 315-9154 to cancel.");
+  }
+  cancelBtn.addEventListener("click", async () => {
+    cancelBtn.disabled = true;
+    cancelBtn.textContent = "Canceling…";
+    try {
+      const row = await rpc("cancel_booking", { p_token: cancelToken });
+      if (row && row.slot_date) {
+        const [y, mo, day] = row.slot_date.split("-").map(Number);
+        const when = `${fmtDate(new Date(y, mo - 1, day))} at ${fmtTime(row.slot_hour)}`;
+        done(`Your appointment on ${when} is canceled. That time is open again.`);
+        loadTaken();
+        const text = `Hey Jadiel, I canceled my appointment on ${when}.`;
+        const a = document.createElement("a");
+        a.className = "btn btn-ghost";
+        a.href = `sms:${PHONE}?&body=${encodeURIComponent(text)}`;
+        a.textContent = "Let Jadiel know";
+        cancelBox.querySelector(".cancel-actions").prepend(a);
+      } else {
+        done("This appointment was already canceled or has passed.");
+      }
+    } catch (err) {
+      console.warn(err);
+      cancelBtn.disabled = false;
+      cancelBtn.textContent = "Cancel my appointment";
+      cancelText.textContent = "Something went wrong. Try again, or text (571) 315-9154 to cancel.";
+    }
+  });
+  keepBtn.addEventListener("click", () => {
+    cancelBox.hidden = true;
+    history.replaceState(null, "", `${location.pathname}#book`);
+  });
+}
 
 document.getElementById("year").textContent = new Date().getFullYear();
