@@ -1,7 +1,5 @@
-// Put Jadiel's phone number here (digits only, e.g. "5715551234") so the
-// booking form opens a pre-written text message. Leave blank to show the
-// message on the page for the customer to copy instead.
-const PHONE = "";
+// Jadiel's number — the booking form opens a pre-written text to it.
+const PHONE = "+15713159154";
 
 // Mobile nav
 const toggle = document.getElementById("nav-toggle");
@@ -30,20 +28,22 @@ form.addEventListener("submit", (e) => {
     `Where: ${d.get("where")}\n` +
     `When: ${d.get("when")}`;
 
-  if (PHONE) {
-    window.location.href = `sms:${PHONE}?&body=${encodeURIComponent(text)}`;
-    msg.textContent = "Opening your messages app…";
-    return;
-  }
+  const smsHref = `sms:${PHONE}?&body=${encodeURIComponent(text)}`;
+  // Phones open the Messages app right away; on a computer, show the text to copy.
+  if (window.matchMedia("(pointer: coarse)").matches) window.location.href = smsHref;
 
   msg.innerHTML = "";
   const intro = document.createElement("span");
-  intro.textContent = "Copy this and send it to Jadiel:";
+  intro.textContent = "Send this text to (571) 315-9154:";
   const pre = document.createElement("pre");
   pre.textContent = text;
+  const open = document.createElement("a");
+  open.className = "btn btn-primary";
+  open.href = smsHref;
+  open.textContent = "Open in Messages";
   const copy = document.createElement("button");
   copy.type = "button";
-  copy.className = "btn btn-primary";
+  copy.className = "btn btn-ghost";
   copy.textContent = "Copy message";
   copy.addEventListener("click", async () => {
     try {
@@ -53,7 +53,10 @@ form.addEventListener("submit", (e) => {
       copy.textContent = "Select & copy the text above";
     }
   });
-  msg.append(intro, pre, copy);
+  const actions = document.createElement("div");
+  actions.className = "msg-actions";
+  actions.append(open, copy);
+  msg.append(intro, pre, actions);
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();

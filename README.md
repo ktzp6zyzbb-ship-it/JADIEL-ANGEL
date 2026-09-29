@@ -18,7 +18,7 @@ No build step. Open `index.html` in a browser, or run
 
 ## To update
 
-- **Phone number**: set `PHONE` at the top of `js/script.js` so the booking
-  form opens a pre-filled text message.
+- **Phone number**: (571) 315-9154. To change it, update `PHONE` at the top of
+  `js/script.js` and the `sms:`/`tel:` links in `index.html`.
 - **Prices**: the "Prices" section and the booking form `<select>` in `index.html`.
 - **Photos**: drop new images in `img/` and add a `<figure class="g-item">` in the gallery.
