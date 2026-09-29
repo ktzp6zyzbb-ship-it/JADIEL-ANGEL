@@ -1,0 +1,8 @@
+# Booked times — these show as "Booked" on the website so no one else can pick them.
+# Add one line per confirmed appointment:  YEAR-MONTH-DAY  TIME
+# Examples:
+#   2026-10-03 2:00 PM
+#   2026-10-10 11 AM
+# To free a time back up (a cancellation), delete its line.
+# Old dates can stay or be deleted; past days never show on the calendar.
+
