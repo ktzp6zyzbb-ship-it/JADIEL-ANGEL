@@ -3,381 +3,219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiubo Parce | Colombian Restaurant &amp; Bakery — Midlothian, VA</title>
-<meta name="description" content="Quiubo Parce is a Colombian restaurant and bakery in Midlothian, VA serving authentic dishes like Bandeja Paisa and Mojarra Frita, plus fresh-baked Colombian favorites.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🇨🇴</text></svg>">
+<title>Jadiel Angel | Barber — VCU Area, Richmond VA</title>
+<meta name="description" content="Jadiel Angel is a barber with 3 years of experience serving the VCU area in Richmond, VA. Fades, tapers, beard work and designs — plus dorm house calls at the same price.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💈</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-
-<div class="flag-bar" aria-hidden="true"></div>
-
-<div class="topbar">
-  <div class="container topbar-inner">
-    <a href="tel:+18043034166"><i class="fa-solid fa-phone"></i> (804) 303-4166</a>
-    <a href="#visit"><i class="fa-solid fa-location-dot"></i> 11045 Hull Street Rd, Midlothian, VA</a>
-  </div>
-</div>
+<body id="top">
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#top" class="brand">
-      <span class="brand-mark">QP</span>
-      <span class="brand-text">Quiubo Parce<small><span class="co-flag" aria-hidden="true"></span> Colombian Restaurant &amp; Bakery</small></span>
+    <a href="#top" class="brand" aria-label="Jadiel Angel, home">
+      <span class="brand-mark">JA</span>
+      <span class="brand-text">Jadiel Angel<small>Barber · VCU Area</small></span>
     </a>
     <nav class="site-nav" id="site-nav">
+      <a href="#services">Prices</a>
+      <a href="#work">Work</a>
+      <a href="#house-calls">House Calls</a>
       <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#bakery">Bakery</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#visit">Visit</a>
+      <a href="#book" class="btn btn-gold nav-cta">Book Now</a>
     </nav>
-    <a href="tel:+18043034166" class="btn btn-primary nav-cta">Call to Order</a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<main id="top">
+<main>
 
+  <!-- Hero -->
   <section class="hero">
-    <div class="hero-pattern" aria-hidden="true"></div>
     <div class="container hero-inner">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="co-flag" aria-hidden="true"></span> Sabor Colombiano en Midlothian</p>
-        <h1>¡Quiubo Parce!<span>Colombian Restaurant &amp; Bakery</span></h1>
-        <p class="hero-sub">Hearty plates, fresh-baked favorites, and warm hospitality — a taste of Colombia right here on Hull Street Rd.</p>
-        <div class="hero-actions">
-          <a href="tel:+18043034166" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call (804) 303-4166</a>
-          <a href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener" class="btn btn-doordash"><i class="fa-solid fa-bag-shopping"></i> Order on DoorDash</a>
-          <a href="#visit" class="btn btn-outline"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+        <p class="eyebrow"><span class="pole" aria-hidden="true"></span> Richmond, VA · VCU Area</p>
+        <h1>Clean fades.<br>Sharp lines.<br><span>No trip required.</span></h1>
+        <p class="lead">I'm Jadiel — a barber with 3 years behind the chair. I cut near VCU and come straight to your dorm for the same price.</p>
+        <div class="hero-ctas">
+          <a href="#book" class="btn btn-gold btn-lg">Book a Cut</a>
+          <a href="#services" class="btn btn-ghost btn-lg">See Prices</a>
         </div>
-        <ul class="hero-badges">
-          <li><i class="fa-solid fa-utensils"></i> Dine-in &amp; Takeout</li>
-          <li><i class="fa-solid fa-bread-slice"></i> Fresh Bakery Daily</li>
-          <li><i class="fa-solid fa-heart"></i> Family Owned</li>
-        </ul>
       </div>
-      <div class="hero-flagpole" aria-hidden="true">
-        <svg viewBox="0 0 220 210" class="waving-flag">
-          <defs>
-            <filter id="flagWave" x="-30%" y="-30%" width="160%" height="160%">
-              <feTurbulence type="fractalNoise" numOctaves="2" baseFrequency="0.01 0.04" result="turbulence" seed="4">
-                <animate attributeName="baseFrequency" dur="5s" values="0.01 0.04;0.014 0.05;0.01 0.04" repeatCount="indefinite"/>
-              </feTurbulence>
-              <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="16" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-          </defs>
-          <rect x="8" y="6" width="8" height="196" rx="3" fill="#8a6a45"/>
-          <circle cx="12" cy="8" r="7" fill="#F2A900"/>
-          <g filter="url(#flagWave)" class="flag-cloth">
-            <rect x="16" y="18" width="180" height="90" fill="#FFC72C"/>
-            <rect x="16" y="108" width="180" height="45" fill="#0033A0"/>
-            <rect x="16" y="153" width="180" height="45" fill="#CE1126"/>
-          </g>
-        </svg>
-      </div>
+      <figure class="hero-photo">
+        <img src="img/skin-fade-beard.jpg" alt="Skin fade with textured top and a lined-up beard" width="1138" height="2016">
+        <figcaption>Skin fade + beard</figcaption>
+      </figure>
     </div>
   </section>
 
-  <section id="about" class="section about">
-    <div class="container about-inner">
-      <div class="about-text">
-        <p class="kicker">Our Story</p>
-        <h2>Two traditions, one table</h2>
-        <p>Quiubo Parce brings together the best of Colombian home cooking and a Colombian panadería under one roof. From steaming bandejas built for sharing to golden bread pulled fresh from the oven, every dish is made to remind you of a table back home &mdash; or introduce you to one for the first time.</p>
-        <p>Whether you're stopping in for a full lunch, a quick empanada, or a box of pan de bono for the road, our kitchen and bakery counter are ready to say <em>&iexcl;Quiubo, parce!</em> &mdash; a warm, easygoing Colombian greeting between friends.</p>
-      </div>
-      <div class="about-stats">
-        <div class="stat-card"><i class="fa-solid fa-drumstick-bite"></i><h3>Made Fresh</h3><p>Traditional recipes, cooked to order</p></div>
-        <div class="stat-card"><i class="fa-solid fa-store"></i><h3>Restaurant + Bakery</h3><p>Full meals and fresh-baked goods, all in one stop</p></div>
-        <div class="stat-card"><i class="fa-solid fa-users"></i><h3>Big Portions</h3><p>Built for sharing with familia</p></div>
-      </div>
+  <!-- Quick facts -->
+  <section class="facts" aria-label="Quick facts">
+    <div class="container facts-grid">
+      <div class="fact"><strong>3 yrs</strong><span>Experience</span></div>
+      <div class="fact"><strong>VCU</strong><span>Area barber</span></div>
+      <div class="fact"><strong>$0</strong><span>Extra for dorm calls</span></div>
+      <div class="fact"><strong>NoVA</strong><span>Born &amp; raised</span></div>
     </div>
   </section>
 
-  <section id="menu" class="section menu">
+  <!-- Services -->
+  <section class="section" id="services">
     <div class="container">
-      <p class="kicker center">Full Menu</p>
-      <h2 class="center">Plates worth the trip</h2>
-      <p class="section-sub center">Straight from our DoorDash menu &mdash; prices and descriptions as listed there.</p>
-
-      <div class="menu-photo-grid">
-        <a class="menu-photo-card featured" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/bandeja-paisa.jpg" alt="Bandeja Paisa" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>1. Bandeja Paisa</h3><span class="menu-price">$18.99</span></div>
-            <p>Our signature dish. Pork belly, steak, chorizo, avocado served&hellip;</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/mojarra-frita.jpg" alt="Mojarra Frita" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>15. Mojarra Frita</h3><span class="menu-price">$17.49</span></div>
-            <p>Fried mojarra served with salad, rice and tostones.</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/guacamole-chicharron.jpg" alt="Guacamole con Chicharrón" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>20. Guacamole con Chicharrón</h3><span class="menu-price">$14.99</span></div>
-            <p>Pork belly bowl served with guacamole and tostones.</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/calentado-colombiano.jpg" alt="Calentado Colombiano" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>18. Calentado Colombiano</h3><span class="menu-price">$14.99</span></div>
-            <p>Your choice of grilled steak, chicken, chorizo, blood sausage&hellip;</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/picada-parce.jpg" alt="Picada Parce" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>10. Picada Parce</h3><span class="menu-price">$34.99</span></div>
-            <p>Steak, chicken, chorizo, pork belly, blood sausage, avocado, arepa&hellip;</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/pollo-empanizado.jpg" alt="Pollo Empanizado" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>31. Pollo Empanizado</h3><span class="menu-price">$17.99</span></div>
-            <p>Hand breaded chicken served with rice, beans and sweet plantain.</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/cazuela-paisa.jpg" alt="Cazuela Paisa" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>3. Cazuela Paisa</h3><span class="menu-price">$15.99</span></div>
-            <p>Homemade beans topped with pork belly bites, chorizo, sweet&hellip;</p>
-          </div>
-        </a>
+      <div class="section-head">
+        <p class="eyebrow">Prices</p>
+        <h2>Simple pricing. Same price at your door.</h2>
       </div>
-
-      <p class="kicker center menu-subhead">Jugos Naturales</p>
-      <div class="drinks-grid">
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/mango-juice.jpg" alt="Mango juice" loading="lazy">
-          <span>Mango</span><span class="menu-price">$5.99</span>
-        </a>
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/maracuya-juice.jpg" alt="Maracuyá juice" loading="lazy">
-          <span>Maracuyá</span><span class="menu-price">$5.99</span>
-        </a>
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/mora-juice.jpg" alt="Mora juice" loading="lazy">
-          <span>Mora</span><span class="menu-price">$5.99</span>
-        </a>
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/guanabana-juice.jpg" alt="Guanábana juice" loading="lazy">
-          <span>Guanábana</span><span class="menu-price">$5.99</span>
-        </a>
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/limonada-coco.jpg" alt="Limonada Coco" loading="lazy">
-          <span>Limonada Coco</span><span class="menu-price">$6.99</span>
-        </a>
+      <div class="price-grid">
+        <article class="price-card">
+          <i class="fa-solid fa-scissors" aria-hidden="true"></i>
+          <h3>Regular Haircut</h3>
+          <p>Fade, taper or scissor work, finished with a clean line-up.</p>
+          <div class="price">$25</div>
+        </article>
+        <article class="price-card">
+          <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+          <h3>Haircut + Design</h3>
+          <p>Your regular cut plus a freehand design, lines or pattern.</p>
+          <div class="price">$35</div>
+        </article>
+        <article class="price-card featured">
+          <span class="tag">Most popular</span>
+          <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+          <h3>Haircut + Beard</h3>
+          <p>Full cut plus beard shape-up, blend and sharp edges.</p>
+          <div class="price">$40</div>
+        </article>
       </div>
-
-      <p class="kicker center menu-subhead">Chef's Special</p>
-      <p class="section-sub center menu-disclaimer">Consuming raw or undercooked meats, poultry, seafood, shellfish, or eggs may increase your risk of foodborne illness.</p>
-      <div class="menu-photo-grid menu-photo-grid-secondary">
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/churrasquito.jpg" alt="Churrasquito" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>38. Churrasquito</h3><span class="menu-price">$19.99</span></div>
-            <p>10oz grilled ribeye, served with crispy fries, and chimichurri sauce.</p>
-          </div>
-        </a>
-        <a class="menu-photo-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/arroz-con-pollo.jpg" alt="Arroz con Pollo" loading="lazy">
-          <div class="menu-photo-body">
-            <div class="menu-photo-head"><h3>37. Arroz con Pollo</h3><span class="menu-price">$15.99</span></div>
-            <p>Colombia style chicken fried rice mixed with sweet plantains, mix&hellip;</p>
-          </div>
-        </a>
-      </div>
-      <ul class="menu-list">
-        <li><div><strong>44. Salchipapas Parce</strong><span>French fries, sliced hot dog, cheese, corn, served with pineapple sauce, pink sauce and lettuce.</span></div><span class="menu-price">$15.99</span></li>
-        <li><div><strong>43. Hamburguesa Parce</strong><span>&ldquo;Colombian style burger&rdquo; tomatoes, lettuce, pineapple sauce, bacon, cheese and caramelized onions.</span></div><span class="menu-price">$15.99</span></li>
-        <li><div><strong>39. Charlie's Special</strong><span>8oz cedar planked grilled salmon and 8oz of grilled steak, served with avocado, rice and fries.</span></div><span class="menu-price">$21.99</span></li>
-        <li><div><strong>42. Patacon Parce</strong><span>Large fried tostones served with lettuce, saut&eacute;ed shredded beef, pico de gallo, guacamole and pork belly.</span></div><span class="menu-price">$17.99</span></li>
-        <li><div><strong>35. Salmon al Ajillo</strong><span>Cedar planked grilled salmon 8oz in garlic sauce served with salad, rice and fries.</span></div><span class="menu-price">$19.99</span></li>
-        <li><div><strong>36. Pollo Salteado</strong><span>Chicken strips saut&eacute;ed with onions and bell peppers. Served with rice and tostones.</span></div><span class="menu-price">$15.75</span></li>
-      </ul>
-
-      <p class="kicker center menu-subhead">Sodas y Jugos Embotellados</p>
-      <div class="drinks-grid drinks-grid-small">
-        <a class="drink-card" href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">
-          <img src="img/menu/coca-cola.jpg" alt="Coca-Cola Products" loading="lazy">
-          <span>Coca-Cola Products</span><span class="menu-price">$3.50</span>
-        </a>
-      </div>
-      <ul class="menu-list menu-list-compact">
-        <li><div><strong>Sodas Postob&oacute;n</strong></div><span class="menu-price">$2.99</span></li>
-        <li><div><strong>Apple Juice</strong></div><span class="menu-price">$2.50</span></li>
-        <li><div><strong>Pony Malta</strong></div><span class="menu-price">$2.99</span></li>
-      </ul>
-
-      <div class="menu-cta">
-        <p>This is a sample of what's on DoorDash &mdash; the full menu also includes Featured Items, appetizers, desserts, and a kids' menu.</p>
-        <a href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener" class="btn btn-doordash"><i class="fa-solid fa-bag-shopping"></i> View Full Menu on DoorDash</a>
-      </div>
+      <p class="note"><i class="fa-solid fa-house" aria-hidden="true"></i> Dorm &amp; house calls in the VCU area are the <strong>same price</strong> — no travel fee.</p>
     </div>
   </section>
 
-  <section id="bakery" class="section bakery">
-    <div class="container bakery-inner">
-      <div class="bakery-text">
-        <p class="kicker">La Panadería</p>
-        <h2>Fresh from the Colombian bakery</h2>
-        <p>Pair your meal &mdash; or come by on your own &mdash; for classic Colombian baked goods, made fresh throughout the day.</p>
-        <ul class="bakery-list">
-          <li><i class="fa-solid fa-bread-slice"></i><div><strong>Pan de Bono</strong><span>Cheesy, chewy cassava bread</span></div></li>
-          <li><i class="fa-solid fa-cookie"></i><div><strong>Buñuelos</strong><span>Crispy, golden cheese fritters</span></div></li>
-          <li><i class="fa-solid fa-cake-candles"></i><div><strong>Torta de Tres Leches</strong><span>Soft milk-soaked sponge cake</span></div></li>
-          <li><i class="fa-solid fa-mug-hot"></i><div><strong>Café Colombiano</strong><span>Rich, smooth Colombian coffee</span></div></li>
-        </ul>
-      </div>
-      <div class="bakery-visual">
-        <img src="img/fresa-cake.jpg" alt="Slice of fresa cream cake topped with a chocolate-dipped strawberry" loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <section id="gallery" class="section gallery">
+  <!-- Gallery -->
+  <section class="section section-dark" id="work">
     <div class="container">
-      <p class="kicker center">From Our Kitchen</p>
-      <h2 class="center">A little taste, in pictures</h2>
-      <div class="gallery-grid">
-        <figure class="gallery-item">
-          <img src="img/frozen-margaritas.jpg" alt="Two frozen margaritas, strawberry and mango, topped with cherries" loading="lazy">
-          <figcaption>Frozen Margaritas</figcaption>
+      <div class="section-head">
+        <p class="eyebrow">Recent Work</p>
+        <h2>Fresh out the chair</h2>
+      </div>
+      <div class="gallery">
+        <figure class="g-item ga">
+          <img src="img/curly-taper.jpg" alt="Low taper fade with a long curly top" loading="lazy">
+          <figcaption>Curly top + taper</figcaption>
         </figure>
-        <figure class="gallery-item">
-          <img src="img/fresa-cake.jpg" alt="Slice of fresa cream cake topped with a chocolate-dipped strawberry" loading="lazy">
-          <figcaption>Fresa Cream Cake</figcaption>
+        <figure class="g-item gb">
+          <img src="img/design.jpg" alt="Taper with a freehand line design behind the ear" loading="lazy">
+          <figcaption>Taper + design</figcaption>
+        </figure>
+        <figure class="g-item gc">
+          <img src="img/nape-taper.jpg" alt="Clean nape taper blended to skin on curly hair" loading="lazy">
+          <figcaption>Nape taper</figcaption>
+        </figure>
+        <figure class="g-item gd">
+          <img src="img/kids-taper.jpg" alt="Kid's low taper with a curly top and crisp line-up" loading="lazy">
+          <figcaption>Low taper</figcaption>
+        </figure>
+        <figure class="g-item ge">
+          <img src="img/skin-fade-beard.jpg" alt="Mid skin fade with textured top and beard" loading="lazy">
+          <figcaption>Skin fade + beard</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
-  <section id="reviews" class="section reviews">
-    <div class="container">
-      <p class="kicker center">Reviews</p>
-      <h2 class="center">What guests are saying</h2>
-      <div class="review-grid multi">
-        <blockquote class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;Went to Quiubo Parce for lunch and had a wonderful experience. Service was friendly and prompt, and every dish we tried was delicious! The Bandeja Paisa was the star of the show &mdash; a huge tower with fried pork belly, beans, steak, Colombian chorizo, a fried egg, an arepa, and plantains. It was fun just figuring out how to dig in. We also had the Mojarra Frita, a generously sized whole fish, crispy outside and tender inside. Highly recommend!&rdquo;</p>
-          <cite>&mdash; A happy lunch guest</cite>
-        </blockquote>
-        <blockquote class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;They did exactly what I asked and more &mdash; the fact that they bottle up to go beverages is by far better than anything I've seen, food was organized so well in the bag. This company can teach downtown Richmond restaurants a thing or two about customer service. Everything is superb. I will be visiting in person.&rdquo;</p>
-          <cite>&mdash; Jasmine P., DoorDash order</cite>
-        </blockquote>
-        <blockquote class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;The Arroz Mixto Con Papas is fried rice with very large pieces of pork belly, steak, chicken breast, small pieces of plantains, &amp; veggies. I will never order Asian fried rice again. This fried rice is so superior in every way. It is incredible. The salads I ordered were fabulous. I look forward to ordering from this restaurant again &amp; again.&rdquo;</p>
-          <cite>&mdash; Tracy Z., Local Expert &middot; DoorDash order</cite>
-        </blockquote>
-        <blockquote class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;This place is my go to, generous portions, food is fresh, and clean, the chicken is crispy, beans are flavorful and the rice&hellip; devine. My favorite so far. I am currently eating my way through the menu, so far nothing has been a miss, all amazingly done.&rdquo;</p>
-          <cite>&mdash; Joseph S., DoorDash order</cite>
-        </blockquote>
-        <blockquote class="review-card">
-          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-          <p>&ldquo;The chicharr&oacute;n was perfectly crispy on the outside and juicy on the inside, super flavorful and not overly greasy. Great portion size and seasoned just right. Tried both lulo and guan&aacute;bana juices and wow! The lulo was tangy and refreshing. The guan&aacute;bana was creamy, sweet, and smooth. Both tasted fresh and natural.&rdquo;</p>
-          <cite>&mdash; Nayre S., DoorDash order</cite>
-        </blockquote>
+  <!-- House calls -->
+  <section class="section" id="house-calls">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">House Calls</p>
+        <h2>I come to your dorm.</h2>
+        <p>Between classes, before a night out, or just don't feel like walking — I'll bring the clippers to you. Dorms and apartments around VCU, same prices as always.</p>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> No travel fee in the VCU area</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> I bring everything — clippers, cape, cleanup</li>
+          <li><i class="fa-solid fa-check" aria-hidden="true"></i> Grab your roommates and book back-to-back</li>
+        </ul>
+        <a href="#book" class="btn btn-gold">Book a House Call</a>
       </div>
-      <p class="reviews-source">Reviews shown as posted on <a href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">DoorDash</a>.</p>
+      <div class="pay-card">
+        <h3>Payment</h3>
+        <p>Pay however's easiest for you.</p>
+        <ul class="pay-list">
+          <li><i class="fa-brands fa-apple" aria-hidden="true"></i> Apple Pay</li>
+          <li><span class="pay-dot venmo" aria-hidden="true">V</span> Venmo</li>
+          <li><span class="pay-dot cashapp" aria-hidden="true">$</span> Cash App</li>
+          <li><span class="pay-dot zelle" aria-hidden="true">Z</span> Zelle</li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <section id="visit" class="section visit">
-    <div class="container visit-inner">
-      <div class="visit-info">
-        <p class="kicker">Visit Us</p>
-        <h2>Come say &iexcl;Quiubo!</h2>
-        <ul class="info-list">
-          <li>
-            <i class="fa-solid fa-location-dot"></i>
-            <div>
-              <strong>Address</strong>
-              <span>11045 Hull Street Rd, Midlothian, VA</span>
-              <a href="https://www.google.com/maps/search/?api=1&query=11045+Hull+Street+Rd+Midlothian+VA" target="_blank" rel="noopener">Get Directions <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-phone"></i>
-            <div>
-              <strong>Phone</strong>
-              <span><a href="tel:+18043034166">(804) 303-4166</a></span>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-clock"></i>
-            <div>
-              <strong>Hours</strong>
-              <ul class="hours-list" id="hours-list">
-                <li data-day="1"><span class="day">Monday</span><span class="time closed">Closed</span></li>
-                <li data-day="2"><span class="day">Tuesday</span><span class="time">11 AM&ndash;9 PM</span></li>
-                <li data-day="3"><span class="day">Wednesday</span><span class="time">11 AM&ndash;9 PM</span></li>
-                <li data-day="4"><span class="day">Thursday</span><span class="time">11 AM&ndash;9 PM</span></li>
-                <li data-day="5"><span class="day">Friday</span><span class="time">11 AM&ndash;1 AM</span></li>
-                <li data-day="6"><span class="day">Saturday</span><span class="time">11 AM&ndash;1 AM</span></li>
-                <li data-day="0"><span class="day">Sunday</span><span class="time">10 AM&ndash;1 AM</span></li>
-              </ul>
-            </div>
-          </li>
-          <li>
-            <i class="fa-solid fa-bag-shopping"></i>
-            <div>
-              <strong>Delivery &amp; Pickup</strong>
-              <span><a href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener">Order on DoorDash <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
-            </div>
-          </li>
-        </ul>
-        <div class="visit-actions">
-          <a href="tel:+18043034166" class="btn btn-primary"><i class="fa-solid fa-phone"></i> Call (804) 303-4166</a>
-          <a href="https://www.doordash.com/store/quiubo-parce-colombian-restaurant-&-bakery-midlothian-27716897/" target="_blank" rel="noopener" class="btn btn-doordash"><i class="fa-solid fa-bag-shopping"></i> Order on DoorDash</a>
-        </div>
+  <!-- About -->
+  <section class="section section-dark" id="about">
+    <div class="container split about">
+      <figure class="about-photo">
+        <img src="img/nape-taper.jpg" alt="Close-up of a clean blended nape taper" loading="lazy">
+      </figure>
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>Jadiel Angel</h2>
+        <p>I'm from Northern Virginia and I've been cutting for 3 years. Now I'm based in the VCU area, cutting students and locals who want a clean, consistent cut without the barbershop wait.</p>
+        <p>Tapers, skin fades, curly tops, beard work, and freehand designs — I take my time on every blend and every line.</p>
       </div>
-      <div class="visit-map">
-        <iframe
-          title="Quiubo Parce location map"
-          src="https://www.google.com/maps?q=11045+Hull+Street+Rd+Midlothian+VA&output=embed"
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    </div>
+  </section>
+
+  <!-- Book -->
+  <section class="section" id="book">
+    <div class="container book">
+      <div class="section-head">
+        <p class="eyebrow">Book</p>
+        <h2>Lock in your cut</h2>
+        <p>Fill this out and send it to me — I'll confirm your time.</p>
       </div>
+      <form class="book-form" id="book-form">
+        <label>Your name
+          <input type="text" name="name" required autocomplete="given-name">
+        </label>
+        <label>Service
+          <select name="service">
+            <option value="Regular Haircut ($25)">Regular Haircut — $25</option>
+            <option value="Haircut + Design ($35)">Haircut + Design — $35</option>
+            <option value="Haircut + Beard ($40)">Haircut + Beard — $40</option>
+          </select>
+        </label>
+        <label>Where?
+          <select name="where">
+            <option value="Meet in the VCU area">Meet in the VCU area</option>
+            <option value="House call to my dorm/apartment">House call — my dorm / apartment</option>
+          </select>
+        </label>
+        <label>Preferred day &amp; time
+          <input type="text" name="when" placeholder="e.g. Friday after 3pm" required>
+        </label>
+        <button type="submit" class="btn btn-gold btn-lg">Send Booking Request</button>
+        <p class="form-msg" id="form-msg" role="status"></p>
+      </form>
     </div>
   </section>
 
 </main>
 
 <footer class="site-footer">
-  <div class="flag-bar" aria-hidden="true"></div>
   <div class="container footer-inner">
-    <div class="brand footer-brand">
-      <span class="brand-mark">QP</span>
-      <span class="brand-text">Quiubo Parce<small><span class="co-flag" aria-hidden="true"></span> Colombian Restaurant &amp; Bakery</small></span>
+    <div>
+      <span class="brand-mark">JA</span>
+      <p><strong>Jadiel Angel</strong> — Barber · VCU Area, Richmond VA</p>
     </div>
-    <p>11045 Hull Street Rd, Midlothian, VA &nbsp;&bull;&nbsp; <a href="tel:+18043034166">(804) 303-4166</a></p>
-    <p class="footer-tagline">Hecho con orgullo colombiano &mdash; made with Colombian pride</p>
-    <p class="copyright">&copy; <span id="year"></span> Quiubo Parce. All rights reserved.</p>
+    <p class="small">Apple Pay · Venmo · Cash App · Zelle</p>
+    <p class="small">&copy; <span id="year"></span> Jadiel Angel</p>
   </div>
 </footer>
-
-<a href="tel:+18043034166" class="mobile-call-fab" aria-label="Call Quiubo Parce"><i class="fa-solid fa-phone"></i></a>
 
 <script src="js/script.js"></script>
 </body>

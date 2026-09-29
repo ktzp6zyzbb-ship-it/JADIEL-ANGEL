@@ -1,28 +1,24 @@
-# Quiubo Parce — Colombian Restaurant & Bakery
+# Jadiel Angel — Barber
 
-A static one-page website for Quiubo Parce, a Colombian restaurant and bakery
-at 11045 Hull Street Rd, Midlothian, VA.
+A static one-page website for Jadiel Angel, a barber with 3 years of
+experience serving the VCU area in Richmond, VA (dorm house calls at the same
+price).
 
 ## Structure
 
-- `index.html` — page content (hero, about, menu highlights, bakery, reviews, visit/contact)
+- `index.html` — page content (hero, prices, gallery, house calls + payment, about, booking)
 - `css/style.css` — styling
-- `js/script.js` — mobile nav toggle + footer year
+- `js/script.js` — mobile nav, booking form, footer year
+- `img/` — haircut photos
 
 ## Running locally
 
-No build step required. Open `index.html` directly in a browser, or serve the
-folder with any static server, e.g.:
-
-```
-python3 -m http.server 8000
-```
-
-then visit `http://localhost:8000`.
+No build step. Open `index.html` in a browser, or run
+`python3 -m http.server 8000` and visit `http://localhost:8000`.
 
 ## To update
 
-- **Hours**: listed in the "Visit" section's `#hours-list` in `index.html`.
-  Today's row is auto-highlighted client-side by `js/script.js`.
-- **Photos**: the site currently uses icon-based visuals instead of real
-  photography. Swap in real photos of the food/storefront when available.
+- **Phone number**: set `PHONE` at the top of `js/script.js` so the booking
+  form opens a pre-filled text message.
+- **Prices**: the "Prices" section and the booking form `<select>` in `index.html`.
+- **Photos**: drop new images in `img/` and add a `<figure class="g-item">` in the gallery.
