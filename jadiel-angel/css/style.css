@@ -294,6 +294,10 @@ main .note { color: var(--text); }
 }
 .slot:hover { border-color: var(--red); }
 .slot.selected { background: var(--red); border-color: var(--red); color: #fff; }
+.slot.taken { cursor: default; color: rgba(255,255,255,.3); border-style: dashed; text-decoration: line-through; }
+.slot.taken:hover { border-color: rgba(255,255,255,.18); }
+.slot small { display: block; font-size: .68rem; text-decoration: none; letter-spacing: .06em; text-transform: uppercase; }
+.msg-intro { display: block; font-weight: 700; color: var(--text); }
 .cal-day:focus-visible, .slot:focus-visible, .cal-nav:focus-visible { outline: 2px solid var(--red-2); outline-offset: 2px; }
 .picker-picked { margin: 12px 0 0; font-weight: 700; color: var(--text); }
 .picker-picked:empty { display: none; }
