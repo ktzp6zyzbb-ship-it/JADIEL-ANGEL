@@ -12,8 +12,8 @@ const BOOK_AHEAD_DAYS = 45;
 // (or anon public) key from Supabase -> Project Settings -> API. Both are
 // meant to be public. While blank, the site uses booked.txt + text requests.
 const BOOKING_DB = {
-  url: "",
-  key: "",
+  url: "https://wzwrplftvfucwqsxlvfg.supabase.co",
+  key: "sb_publishable_BUvmz3sUnmIDJWGzlLfVvw_FJDhiphv",
 };
 const dbOn = Boolean(BOOKING_DB.url && BOOKING_DB.key);
 
