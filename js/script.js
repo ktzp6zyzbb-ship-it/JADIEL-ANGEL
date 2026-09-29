@@ -43,7 +43,7 @@ form.addEventListener("submit", (e) => {
   pre.textContent = text;
   const copy = document.createElement("button");
   copy.type = "button";
-  copy.className = "btn btn-gold";
+  copy.className = "btn btn-primary";
   copy.textContent = "Copy message";
   copy.addEventListener("click", async () => {
     try {

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jadiel Angel | Barber — VCU Area, Richmond VA</title>
 <meta name="description" content="Jadiel Angel is a barber with 3 years of experience serving the VCU area in Richmond, VA. Fades, tapers, beard work and designs — plus dorm house calls at the same price.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💈</text></svg>">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,11 +13,28 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body id="top">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ja-logo" viewBox="0 0 100 100">
+  <circle cx="50" cy="50" r="47" fill="#0b0b0c" stroke="#e0282f" stroke-width="4"/>
+  <circle cx="50" cy="50" r="40.5" fill="none" stroke="#ffffff" stroke-opacity=".3" stroke-width="1"/>
+  <g fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round">
+    <circle cx="45.5" cy="28" r="3"/>
+    <circle cx="54.5" cy="28" r="3"/>
+    <path d="M47.5 25.8 L56 14.5 M52.5 25.8 L44 14.5"/>
+  </g>
+  <text x="50" y="71" text-anchor="middle" font-family="Anton, Impact, 'Arial Black', sans-serif" font-weight="900" font-size="40" letter-spacing="1" fill="#ffffff">J<tspan fill="#e0282f">A</tspan></text>
+  <path d="M30 80 H70" stroke="#e0282f" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="26" cy="80" r="1.6" fill="#ffffff"/>
+  <circle cx="74" cy="80" r="1.6" fill="#ffffff"/>
+  </symbol>
+</svg>
+
+<div class="bg" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
 
 <header class="site-header">
   <div class="container header-inner">
     <a href="#top" class="brand" aria-label="Jadiel Angel, home">
-      <span class="brand-mark">JA</span>
+      <svg class="logo" aria-hidden="true"><use href="#ja-logo"/></svg>
       <span class="brand-text">Jadiel Angel<small>Barber · VCU Area</small></span>
     </a>
     <nav class="site-nav" id="site-nav">
@@ -25,7 +42,7 @@
       <a href="#work">Work</a>
       <a href="#house-calls">House Calls</a>
       <a href="#about">About</a>
-      <a href="#book" class="btn btn-gold nav-cta">Book Now</a>
+      <a href="#book" class="btn btn-primary nav-cta">Book Now</a>
     </nav>
     <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
       <span></span><span></span><span></span>
@@ -43,7 +60,7 @@
         <h1>Clean fades.<br>Sharp lines.<br><span>No trip required.</span></h1>
         <p class="lead">I'm Jadiel — a barber with 3 years behind the chair. I cut near VCU and come straight to your dorm for the same price.</p>
         <div class="hero-ctas">
-          <a href="#book" class="btn btn-gold btn-lg">Book a Cut</a>
+          <a href="#book" class="btn btn-primary btn-lg">Book a Cut</a>
           <a href="#services" class="btn btn-ghost btn-lg">See Prices</a>
         </div>
       </div>
@@ -97,7 +114,7 @@
   </section>
 
   <!-- Gallery -->
-  <section class="section section-dark" id="work">
+  <section class="section section-alt" id="work">
     <div class="container">
       <div class="section-head">
         <p class="eyebrow">Recent Work</p>
@@ -140,7 +157,7 @@
           <li><i class="fa-solid fa-check" aria-hidden="true"></i> I bring everything — clippers, cape, cleanup</li>
           <li><i class="fa-solid fa-check" aria-hidden="true"></i> Grab your roommates and book back-to-back</li>
         </ul>
-        <a href="#book" class="btn btn-gold">Book a House Call</a>
+        <a href="#book" class="btn btn-primary">Book a House Call</a>
       </div>
       <div class="pay-card">
         <h3>Payment</h3>
@@ -156,18 +173,18 @@
   </section>
 
   <!-- About -->
-  <section class="section section-dark" id="about">
+  <section class="section section-alt" id="about">
     <div class="container split about">
-      <figure class="about-photo">
-        <img src="img/jadiel.jpg" alt="Jadiel Angel cutting a client's hair during a house call" loading="lazy">
-        <figcaption>Jadiel on a house call</figcaption>
-      </figure>
       <div>
         <p class="eyebrow">About</p>
         <h2>Jadiel Angel</h2>
         <p>I'm from Northern Virginia and I've been cutting for 3 years. Now I'm based in the VCU area, cutting students and locals who want a clean, consistent cut without the barbershop wait.</p>
         <p>Tapers, skin fades, curly tops, beard work, and freehand designs — I take my time on every blend and every line.</p>
       </div>
+      <figure class="about-photo">
+        <img src="img/jadiel.jpg" alt="Jadiel Angel cutting a client's hair during a house call" loading="lazy">
+        <figcaption>Jadiel on a house call</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -199,7 +216,7 @@
         <label>Preferred day &amp; time
           <input type="text" name="when" placeholder="e.g. Friday after 3pm" required>
         </label>
-        <button type="submit" class="btn btn-gold btn-lg">Send Booking Request</button>
+        <button type="submit" class="btn btn-primary btn-lg">Send Booking Request</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>
     </div>
@@ -210,7 +227,7 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div>
-      <span class="brand-mark">JA</span>
+      <svg class="logo logo-lg" aria-hidden="true"><use href="#ja-logo"/></svg>
       <p><strong>Jadiel Angel</strong> — Barber · VCU Area, Richmond VA</p>
     </div>
     <p class="small">Apple Pay · Venmo · Cash App · Zelle</p>
