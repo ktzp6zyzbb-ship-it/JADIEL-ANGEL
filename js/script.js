@@ -59,7 +59,7 @@ function openHours(d) {
 }
 
 function renderCalendar() {
-  calMonth.textContent = viewMonth.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  calMonth.value = `${viewMonth.getFullYear()}-${viewMonth.getMonth()}`;
   calPrev.disabled = viewMonth <= new Date(today.getFullYear(), today.getMonth(), 1);
   calNext.disabled = new Date(viewMonth.getFullYear(), viewMonth.getMonth() + 1, 1) > lastDay;
 
@@ -90,7 +90,7 @@ function renderCalendar() {
 function renderSlots() {
   slotsEl.innerHTML = "";
   if (!pickedDate) {
-    slotsTitle.textContent = "Choose a day first";
+    slotsTitle.textContent = "Tap a date to see open times";
     updatePicked();
     return;
   }
@@ -116,6 +116,19 @@ function updatePicked() {
     ? `Selected: ${fmtDate(pickedDate)} at ${fmtTime(pickedTime)}`
     : "";
 }
+
+// Month dropdown: every month from this one through the last bookable day
+for (let m = new Date(today.getFullYear(), today.getMonth(), 1); m <= lastDay; m = new Date(m.getFullYear(), m.getMonth() + 1, 1)) {
+  const o = document.createElement("option");
+  o.value = `${m.getFullYear()}-${m.getMonth()}`;
+  o.textContent = m.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  calMonth.append(o);
+}
+calMonth.addEventListener("change", () => {
+  const [y, mo] = calMonth.value.split("-").map(Number);
+  viewMonth = new Date(y, mo, 1);
+  renderCalendar();
+});
 
 calPrev.addEventListener("click", () => {
   viewMonth = new Date(viewMonth.getFullYear(), viewMonth.getMonth() - 1, 1);
