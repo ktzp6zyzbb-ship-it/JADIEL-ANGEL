@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hair by Monett | Book Your Appointment</title>
+<meta name="description" content="Hair by Monett — book your appointment online, pay with Cash App, and see the latest work on Instagram.">
+<meta property="og:title" content="Hair by Monett">
+<meta property="og:description" content="Book your appointment online, pay with Cash App, and see the latest work on Instagram.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💇🏾‍♀️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root {
+    --ink: #1b1416;
+    --ink-soft: #4a3d41;
+    --cream: #fbf5f1;
+    --blush: #f3dcd6;
+    --rose: #c9787f;
+    --rose-deep: #a4525b;
+    --gold: #c9a15b;
+    --gold-soft: #e8d3a8;
+    --white: #ffffff;
+    --radius: 18px;
+    --shadow: 0 18px 40px -18px rgba(27, 20, 22, .35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Poppins", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { width: min(1120px, 100% - 32px); margin-inline: auto; }
+  .script { font-family: "Cormorant Garamond", serif; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(251, 245, 241, .85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 161, 91, .25);
+  }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 70px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: linear-gradient(135deg, var(--rose), var(--gold));
+    color: var(--white);
+    font-family: "Cormorant Garamond", serif; font-weight: 700; font-size: 1.35rem;
+  }
+  .brand-text { font-family: "Cormorant Garamond", serif; font-size: 1.45rem; font-weight: 700; letter-spacing: .02em; }
+  .site-nav { display: flex; gap: 28px; font-size: .92rem; font-weight: 500; }
+  .site-nav a { position: relative; color: var(--ink-soft); transition: color .2s; }
+  .site-nav a:hover { color: var(--rose-deep); }
+  .nav-toggle { display: none; background: none; border: 0; font-size: 1.4rem; color: var(--ink); cursor: pointer; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 26px; border-radius: 999px;
+    font-weight: 600; font-size: .95rem; letter-spacing: .01em;
+    border: 2px solid transparent;
+    transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--ink); color: var(--white); box-shadow: var(--shadow); }
+  .btn-primary:hover { background: var(--rose-deep); }
+  .btn-outline { border-color: var(--ink); color: var(--ink); }
+  .btn-outline:hover { background: var(--ink); color: var(--white); }
+  .btn-sm { padding: 10px 18px; font-size: .85rem; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    padding: 90px 0 110px;
+    background:
+      radial-gradient(circle at 85% 20%, rgba(201, 120, 127, .28), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(201, 161, 91, .25), transparent 45%),
+      var(--cream);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .78rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--rose-deep);
+  }
+  .eyebrow::before { content: ""; width: 34px; height: 1px; background: currentColor; }
+  .hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(3rem, 7vw, 5.4rem);
+    line-height: .95; font-weight: 700;
+    margin: 18px 0 22px;
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--rose-deep); }
+  .hero p.lead { font-size: 1.08rem; color: var(--ink-soft); max-width: 480px; margin-bottom: 34px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-handle { margin-top: 28px; font-size: .9rem; color: var(--ink-soft); display: flex; align-items: center; gap: 8px; }
+  .hero-handle i { color: var(--rose-deep); }
+
+  .hero-art { position: relative; aspect-ratio: 4 / 5; max-width: 420px; justify-self: center; width: 100%; }
+  .arch {
+    position: absolute; inset: 0;
+    border-radius: 999px 999px 24px 24px;
+    background: linear-gradient(160deg, var(--rose) 0%, var(--rose-deep) 55%, var(--ink) 100%);
+    box-shadow: var(--shadow);
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .arch::after {
+    content: ""; position: absolute; inset: 14px;
+    border-radius: 999px 999px 16px 16px;
+    border: 1px solid rgba(232, 211, 168, .6);
+  }
+  .arch-icon { font-size: 7rem; color: rgba(255, 255, 255, .9); }
+  .arch-monogram {
+    position: absolute; bottom: 42px; left: 0; right: 0; text-align: center;
+    font-family: "Cormorant Garamond", serif; font-style: italic;
+    color: var(--gold-soft); font-size: 1.6rem; letter-spacing: .04em;
+  }
+  .badge {
+    position: absolute; background: var(--white); border-radius: 16px;
+    padding: 12px 16px; box-shadow: var(--shadow);
+    display: flex; align-items: center; gap: 12px; font-size: .85rem; font-weight: 500;
+  }
+  .badge i { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--white); }
+  .badge-book { top: 12%; left: -34px; }
+  .badge-book i { background: var(--ink); }
+  .badge-pay { bottom: 16%; right: -30px; }
+  .badge-pay i { background: #00c244; }
+  .badge small { display: block; color: var(--ink-soft); font-weight: 400; font-size: .75rem; }
+
+  /* ---------- Sections ---------- */
+  section { padding: 96px 0; }
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+  .section-head .eyebrow { justify-content: center; }
+  .section-head .eyebrow::after { content: ""; width: 34px; height: 1px; background: currentColor; }
+  .section-head h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(2.3rem, 4.5vw, 3.3rem); line-height: 1.05; font-weight: 700;
+    margin: 14px 0 14px;
+  }
+  .section-head p { color: var(--ink-soft); }
+
+  /* Link cards */
+  .links { background: var(--white); }
+  .link-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .link-card {
+    position: relative; overflow: hidden;
+    border-radius: var(--radius); padding: 36px 30px 32px;
+    background: var(--cream); border: 1px solid rgba(201, 161, 91, .25);
+    display: flex; flex-direction: column; gap: 14px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .link-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .link-card .icon {
+    width: 58px; height: 58px; border-radius: 16px;
+    display: grid; place-items: center; font-size: 1.6rem; color: var(--white);
+  }
+  .link-card h3 { font-family: "Cormorant Garamond", serif; font-size: 1.8rem; line-height: 1.1; }
+  .link-card p { color: var(--ink-soft); font-size: .95rem; flex: 1; }
+  .link-card .handle { font-weight: 600; font-size: .95rem; }
+  .link-card .go { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem; color: var(--rose-deep); }
+  .link-card:hover .go i { transform: translateX(4px); }
+  .link-card .go i { transition: transform .2s; }
+  .card-book .icon { background: var(--ink); }
+  .card-pay .icon { background: #00c244; }
+  .card-ig .icon { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+  .card-book { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .card-book p { color: rgba(255, 255, 255, .72); }
+  .card-book .icon { background: linear-gradient(135deg, var(--rose), var(--gold)); }
+  .card-book .go { color: var(--gold-soft); }
+  .card-tag {
+    position: absolute; top: 20px; right: 20px;
+    font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    background: var(--gold); color: var(--ink); padding: 5px 10px; border-radius: 999px;
+  }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: step; }
+  .step {
+    background: var(--white); border-radius: var(--radius);
+    padding: 34px 28px; position: relative; box-shadow: 0 10px 30px -20px rgba(27, 20, 22, .3);
+  }
+  .step::before {
+    counter-increment: step; content: "0" counter(step);
+    font-family: "Cormorant Garamond", serif; font-size: 3.2rem; font-weight: 700; line-height: 1;
+    color: var(--blush); display: block; margin-bottom: 12px;
+  }
+  .step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .step p { color: var(--ink-soft); font-size: .95rem; }
+  .step a { color: var(--rose-deep); font-weight: 600; border-bottom: 1px solid currentColor; }
+
+  /* Tips */
+  .tips { background: var(--blush); }
+  .tips-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+  .tip {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: rgba(255, 255, 255, .7); border-radius: var(--radius); padding: 24px;
+  }
+  .tip i {
+    flex: none; width: 44px; height: 44px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--white); color: var(--rose-deep);
+  }
+  .tip h3 { font-size: 1rem; margin-bottom: 4px; }
+  .tip p { color: var(--ink-soft); font-size: .92rem; }
+
+  /* Instagram strip */
+  .ig-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 40px; }
+  .ig-tile {
+    aspect-ratio: 1; border-radius: 14px; position: relative; overflow: hidden;
+    display: grid; place-items: center; color: rgba(255, 255, 255, .85); font-size: 2rem;
+    transition: transform .25s;
+  }
+  .ig-tile:hover { transform: scale(1.03); }
+  .ig-tile span {
+    position: absolute; inset: 0; display: grid; place-items: center;
+    background: rgba(27, 20, 22, .55); opacity: 0; transition: opacity .25s;
+    font-size: .85rem; font-weight: 600; letter-spacing: .08em;
+  }
+  .ig-tile:hover span { opacity: 1; }
+  .ig-tile:nth-child(1) { background: linear-gradient(135deg, #c9787f, #6d2f38); }
+  .ig-tile:nth-child(2) { background: linear-gradient(135deg, #c9a15b, #7a5a25); }
+  .ig-tile:nth-child(3) { background: linear-gradient(135deg, #1b1416, #a4525b); }
+  .ig-tile:nth-child(4) { background: linear-gradient(135deg, #e8b8b0, #c9787f); }
+  .center { text-align: center; }
+
+  /* CTA */
+  .cta {
+    background: var(--ink); color: var(--white); text-align: center;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(201, 120, 127, .35), transparent 50%),
+      radial-gradient(circle at 80% 100%, rgba(201, 161, 91, .3), transparent 50%);
+  }
+  .cta h2 { font-family: "Cormorant Garamond", serif; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05; margin-bottom: 16px; }
+  .cta h2 em { color: var(--gold-soft); }
+  .cta p { color: rgba(255, 255, 255, .75); max-width: 520px; margin: 0 auto 32px; }
+  .cta .btn-primary { background: var(--white); color: var(--ink); }
+  .cta .btn-primary:hover { background: var(--gold-soft); }
+  .cta .btn-outline { border-color: rgba(255, 255, 255, .6); color: var(--white); }
+  .cta .btn-outline:hover { background: var(--white); color: var(--ink); }
+  .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
+
+  /* Footer */
+  .site-footer { background: #120d0f; color: rgba(255, 255, 255, .6); padding: 36px 0; font-size: .85rem; }
+  .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+  .socials { display: flex; gap: 12px; }
+  .socials a {
+    width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+    border: 1px solid rgba(255, 255, 255, .2); color: var(--white); transition: background .2s, border-color .2s;
+  }
+  .socials a:hover { background: var(--rose-deep); border-color: var(--rose-deep); }
+
+  /* Mobile sticky bar */
+  .mobile-bar { display: none; }
+
+  /* Copy toast */
+  .copy-btn {
+    background: none; border: 1px dashed rgba(27, 20, 22, .35); border-radius: 999px;
+    padding: 4px 10px; font: inherit; font-size: .75rem; cursor: pointer; color: var(--ink-soft);
+    margin-left: 6px;
+  }
+  .copy-btn:hover { border-color: var(--rose-deep); color: var(--rose-deep); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; text-align: center; }
+    .hero p.lead { margin-inline: auto; }
+    .hero-actions, .hero-handle { justify-content: center; }
+    .eyebrow { justify-content: center; }
+    .hero-art { max-width: 320px; margin-top: 20px; }
+    .badge-book { left: -16px; }
+    .badge-pay { right: -16px; }
+    .link-grid, .steps { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .ig-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .site-nav {
+      position: absolute; top: 70px; left: 0; right: 0;
+      flex-direction: column; gap: 0; background: var(--cream);
+      border-bottom: 1px solid rgba(201, 161, 91, .25);
+      max-height: 0; overflow: hidden; transition: max-height .3s;
+    }
+    .site-nav.open { max-height: 320px; }
+    .site-nav a { padding: 16px 24px; border-top: 1px solid rgba(201, 161, 91, .15); }
+    .nav-toggle { display: block; }
+    .header-cta { display: none; }
+    section { padding: 72px 0; }
+    .hero { padding: 56px 0 80px; }
+    .mobile-bar {
+      display: flex; gap: 10px;
+      position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 60;
+      padding: 8px; border-radius: 999px;
+      background: rgba(27, 20, 22, .92); backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
+    .mobile-bar a {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px; border-radius: 999px; color: var(--white); font-weight: 600; font-size: .9rem;
+    }
+    .mobile-bar a.book { background: linear-gradient(135deg, var(--rose), var(--rose-deep)); flex: 1.6; }
+    body { padding-bottom: 84px; }
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#top" class="brand" aria-label="Hair by Monett home">
+      <span class="brand-mark">M</span>
+      <span class="brand-text">Hair by Monett</span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="#links">Book &amp; Pay</a>
+      <a href="#how">How It Works</a>
+      <a href="#tips">Appointment Tips</a>
+      <a href="#work">The Work</a>
+    </nav>
+    <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener" class="btn btn-primary btn-sm header-cta">
+      <i class="fa-regular fa-calendar-check"></i> Book Now
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="reveal">
+        <span class="eyebrow">Hair Stylist</span>
+        <h1>Hair by <em>Monett</em></h1>
+        <p class="lead">Your hair, done with care. Pick your style, lock in your spot online, and walk out feeling like your best self.</p>
+        <div class="hero-actions">
+          <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener" class="btn btn-primary">
+            <i class="fa-regular fa-calendar-check"></i> Book Your Appointment
+          </a>
+          <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" class="btn btn-outline">
+            <i class="fa-brands fa-instagram"></i> See My Work
+          </a>
+        </div>
+        <p class="hero-handle"><i class="fa-brands fa-instagram"></i> @_hairbyymonett_</p>
+      </div>
+
+      <div class="hero-art reveal" aria-hidden="true">
+        <div class="arch">
+          <i class="fa-solid fa-wand-magic-sparkles arch-icon"></i>
+          <span class="arch-monogram">~ by Monett ~</span>
+        </div>
+        <div class="badge badge-book">
+          <i class="fa-regular fa-calendar"></i>
+          <div>Online booking<small>Open 24/7</small></div>
+        </div>
+        <div class="badge badge-pay">
+          <i class="fa-solid fa-dollar-sign"></i>
+          <div>Cash App<small>$nimonett15</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Links -->
+  <section class="links" id="links">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Everything in one place</span>
+        <h2>Book, pay &amp; follow</h2>
+        <p>All of Monett's links, right here — no more digging through the bio.</p>
+      </div>
+
+      <div class="link-grid">
+        <a class="link-card card-book reveal" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">
+          <span class="card-tag">Start here</span>
+          <span class="icon"><i class="fa-regular fa-calendar-check"></i></span>
+          <h3>Book an Appointment</h3>
+          <p>See the full service menu, prices and open times, then reserve your spot in a couple of taps.</p>
+          <span class="go">Open booking <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a class="link-card card-pay reveal" href="https://cash.app/$nimonett15" target="_blank" rel="noopener">
+          <span class="icon"><i class="fa-solid fa-dollar-sign"></i></span>
+          <h3>Pay with Cash App</h3>
+          <p>Send deposits and payments quickly and securely through Cash App.</p>
+          <span class="handle">$nimonett15</span>
+          <span class="go">Open Cash App <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+
+        <a class="link-card card-ig reveal" href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener">
+          <span class="icon"><i class="fa-brands fa-instagram"></i></span>
+          <h3>Follow on Instagram</h3>
+          <p>Fresh looks, recent clients, openings and announcements — see them first.</p>
+          <span class="handle">@_hairbyymonett_</span>
+          <span class="go">View profile <i class="fa-solid fa-arrow-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Easy as 1-2-3</span>
+        <h2>How booking works</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3>Pick your style</h3>
+          <p>Browse the services on the <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener">booking page</a> and choose what you want done.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Choose a time</h3>
+          <p>Select a date and time that works for you and fill in your details to confirm.</p>
+        </div>
+        <div class="step reveal">
+          <h3>Send your payment</h3>
+          <p>If a deposit or payment is needed, send it through Cash App to <a href="https://cash.app/$nimonett15" target="_blank" rel="noopener">$nimonett15</a><button class="copy-btn" data-copy="$nimonett15" type="button">Copy</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="tips" id="tips">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Before you come in</span>
+        <h2>Appointment tips</h2>
+        <p>A few quick things to help your appointment go smoothly.</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip reveal">
+          <i class="fa-regular fa-clock"></i>
+          <div><h3>Be on time</h3><p>Arrive a few minutes early so we can start right on schedule.</p></div>
+        </div>
+        <div class="tip reveal">
+          <i class="fa-regular fa-image"></i>
+          <div><h3>Bring inspiration</h3><p>Have a photo of the look you want? Bring it — it helps get it exactly right.</p></div>
+        </div>
+        <div class="tip reveal">
+          <i class="fa-regular fa-calendar-xmark"></i>
+          <div><h3>Need to reschedule?</h3><p>Use your booking confirmation to change or cancel as early as possible.</p></div>
+        </div>
+        <div class="tip reveal">
+          <i class="fa-regular fa-comment-dots"></i>
+          <div><h3>Questions?</h3><p>Send a DM on <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener"><strong>Instagram</strong></a> before you book.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The portfolio</span>
+        <h2>See the latest work</h2>
+        <p>Every new look gets posted on Instagram. Tap in to see real results from real clients.</p>
+      </div>
+      <div class="ig-grid reveal">
+        <a class="ig-tile" href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="View on Instagram"><i class="fa-solid fa-scissors"></i><span>VIEW ON IG</span></a>
+        <a class="ig-tile" href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="View on Instagram"><i class="fa-solid fa-spa"></i><span>VIEW ON IG</span></a>
+        <a class="ig-tile" href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="View on Instagram"><i class="fa-solid fa-crown"></i><span>VIEW ON IG</span></a>
+        <a class="ig-tile" href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="View on Instagram"><i class="fa-solid fa-heart"></i><span>VIEW ON IG</span></a>
+      </div>
+      <div class="center reveal">
+        <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="fa-brands fa-instagram"></i> @_hairbyymonett_
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container reveal">
+      <h2>Ready for your <em>glow up</em>?</h2>
+      <p>Spots fill up fast. Grab yours today.</p>
+      <div class="cta-actions">
+        <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fa-regular fa-calendar-check"></i> Book Now
+        </a>
+        <a href="https://cash.app/$nimonett15" target="_blank" rel="noopener" class="btn btn-outline">
+          <i class="fa-solid fa-dollar-sign"></i> Pay $nimonett15
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>&copy; <span id="year"></span> Hair by Monett</span>
+    <div class="socials">
+      <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener" aria-label="Book an appointment"><i class="fa-regular fa-calendar"></i></a>
+      <a href="https://cash.app/$nimonett15" target="_blank" rel="noopener" aria-label="Cash App"><i class="fa-solid fa-dollar-sign"></i></a>
+    </div>
+  </div>
+</footer>
+
+<nav class="mobile-bar" aria-label="Quick actions">
+  <a class="book" href="https://hairbymonetbooking.as.me/schedule/3c40b032" target="_blank" rel="noopener"><i class="fa-regular fa-calendar-check"></i> Book</a>
+  <a href="https://cash.app/$nimonett15" target="_blank" rel="noopener" aria-label="Pay with Cash App"><i class="fa-solid fa-dollar-sign"></i> Pay</a>
+  <a href="https://www.instagram.com/_hairbyymonett_" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+</nav>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById("nav-toggle");
+  const nav = document.getElementById("site-nav");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+    toggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+  });
+  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }));
+
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copy);
+        btn.textContent = "Copied!";
+      } catch (e) {
+        btn.textContent = btn.dataset.copy;
+      }
+      setTimeout(() => (btn.textContent = "Copy"), 1800);
+    });
+  });
+
+  const io = "IntersectionObserver" in window && new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io ? io.observe(el) : el.classList.add("in"));
+</script>
+</body>
+</html>
