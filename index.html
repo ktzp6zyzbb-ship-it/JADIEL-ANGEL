@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=4">
+<link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -240,6 +240,9 @@
         <label>Your name
           <input type="text" name="name" required autocomplete="given-name">
         </label>
+        <label>Your phone
+          <input type="tel" name="phone" required autocomplete="tel" placeholder="(555) 555-5555">
+        </label>
         <label>Service
           <select name="service">
             <option value="Regular Haircut ($25)">Regular Haircut — $25</option>
@@ -272,7 +275,7 @@
           </div>
           <p class="picker-picked" id="picker-picked" aria-live="polite"></p>
         </fieldset>
-        <button type="submit" class="btn btn-primary btn-lg">Send Booking Request</button>
+        <button type="submit" class="btn btn-primary btn-lg">Book This Time</button>
         <p class="form-msg" id="form-msg" role="status"></p>
       </form>
     </div>
@@ -291,6 +294,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=4"></script>
+<script src="js/script.js?v=5"></script>
 </body>
 </html>
