@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -259,10 +259,30 @@
           </select>
         </label>
         <label>Where?
-          <select name="where">
+          <select name="where" id="where">
             <option value="Meet in the VCU area">Meet in the VCU area</option>
-            <option value="House call to my dorm/apartment">House call — my dorm / apartment</option>
+            <optgroup label="House call: VCU dorm">
+              <option value="Ackell Residence Center">Ackell Residence Center</option>
+              <option value="Brandt Hall">Brandt Hall</option>
+              <option value="Broad &amp; Belvidere">Broad &amp; Belvidere</option>
+              <option value="Cary &amp; Belvidere">Cary &amp; Belvidere</option>
+              <option value="Gladding Residence Center (GRC)">Gladding Residence Center (GRC)</option>
+              <option value="Gladding Residence Center III (GRC III)">Gladding Residence Center III (GRC III)</option>
+              <option value="Grace &amp; Broad">Grace &amp; Broad</option>
+              <option value="Honors College">Honors College</option>
+              <option value="Rhoads Hall">Rhoads Hall</option>
+              <option value="West Grace North">West Grace North</option>
+              <option value="West Grace South">West Grace South</option>
+              <option value="Other VCU dorm">Other VCU dorm</option>
+            </optgroup>
+            <optgroup label="House call: off campus">
+              <option value="House">House</option>
+              <option value="Apartment">Apartment</option>
+            </optgroup>
           </select>
+        </label>
+        <label id="where-detail-wrap" hidden><span id="where-detail-label">Room number</span>
+          <input type="text" name="where_detail" id="where-detail" maxlength="120" autocomplete="off">
         </label>
         <fieldset class="picker">
           <legend>Pick a day &amp; time</legend>
@@ -302,6 +322,6 @@
   </div>
 </footer>
 
-<script src="js/script.js?v=8"></script>
+<script src="js/script.js?v=9"></script>
 </body>
 </html>
