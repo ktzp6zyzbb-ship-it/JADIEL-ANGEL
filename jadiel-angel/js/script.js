@@ -241,6 +241,42 @@ const msg = document.getElementById("form-msg");
 const submitBtn = form.querySelector('button[type="submit"]');
 const pageUrl = `${location.origin}${location.pathname}`;
 
+// Where: dorms ask for a room number, houses/apartments for an address.
+const whereSel = document.getElementById("where");
+const whereWrap = document.getElementById("where-detail-wrap");
+const whereLabel = document.getElementById("where-detail-label");
+const whereInput = document.getElementById("where-detail");
+function updateWhere() {
+  const opt = whereSel.selectedOptions[0];
+  const group = opt.parentElement.tagName === "OPTGROUP" ? opt.parentElement.label : "";
+  const isDorm = group.includes("dorm");
+  const isHome = group.includes("off campus");
+  whereWrap.hidden = !(isDorm || isHome);
+  whereInput.required = isDorm || isHome;
+  if (whereSel.value === "Other VCU dorm") {
+    whereLabel.textContent = "Dorm name & room number";
+    whereInput.placeholder = "e.g. Johnson Hall, room 204";
+  } else if (isDorm) {
+    whereLabel.textContent = "Room number";
+    whereInput.placeholder = "e.g. 512";
+  } else {
+    whereLabel.textContent = "Address";
+    whereInput.placeholder = "e.g. 123 W Main St, Apt 4";
+  }
+}
+whereSel.addEventListener("change", updateWhere);
+updateWhere();
+
+function whereText(d) {
+  const place = d.get("where");
+  const detail = String(d.get("where_detail") || "").trim();
+  if (whereWrap.hidden || !detail) return place;
+  if (place === "Other VCU dorm") return `VCU dorm: ${detail}`;
+  const opt = whereSel.selectedOptions[0];
+  const isDorm = opt.parentElement.label && opt.parentElement.label.includes("dorm");
+  return isDorm ? `${place}, room ${detail}` : `${place}: ${detail}`;
+}
+
 function copyButton(label, value) {
   const b = document.createElement("button");
   b.type = "button";
@@ -305,7 +341,7 @@ form.addEventListener("submit", async (e) => {
     `Name: ${d.get("name")}\n` +
     `Phone: ${d.get("phone")}\n` +
     `Service: ${d.get("service")}\n` +
-    `Where: ${d.get("where")}\n` +
+    `Where: ${whereText(d)}\n` +
     `When: ${when}`;
 
   if (!dbOn) {
@@ -323,13 +359,14 @@ form.addEventListener("submit", async (e) => {
       p_name: String(d.get("name")).trim(),
       p_phone: String(d.get("phone")).trim(),
       p_service: d.get("service"),
-      p_location: d.get("where"),
+      p_location: whereText(d).slice(0, 200),
     });
     const cancelLink = `${pageUrl}?cancel=${token}#book`;
     taken.add(slotKey(pickedDate, pickedTime));
     pickedDate = null;
     pickedTime = null;
     form.reset();
+    updateWhere();
     renderCalendar();
     renderSlots();
     showMessage(`You're booked for ${when}! That time is now locked for you.`,
