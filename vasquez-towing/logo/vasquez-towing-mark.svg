@@ -1,17 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Vasquez Towing">
-  <circle cx="60" cy="60" r="60" fill="#C41E2A"/>
-  <circle cx="60" cy="60" r="54" fill="none" stroke="#F2A900" stroke-width="2.5"/>
-  <g transform="translate(60 60) scale(.8) translate(-58.5 -61)"><g id="vt-truck">
-  <path d="M10 68 L14 62 H72 V68 Z" fill="#fff"/>
-  <path d="M18 62 V56 Q18 53 22 52 L30 50 L38 42 Q40 40 44 40 H54 Q57 40 59 43 L64 50 Q68 51 68 55 V62 Z" fill="#fff"/>
-  <path d="M40.5 44 H48 V50 H34.5 Z M51 44 H55 L59.5 50 H51 Z" fill="#C41E2A"/>
-  <circle cx="28" cy="61" r="5.5" fill="#C41E2A"/><circle cx="28" cy="61" r="3.2" fill="#fff"/>
-  <circle cx="58" cy="61" r="5.5" fill="#C41E2A"/><circle cx="58" cy="61" r="3.2" fill="#fff"/>
-  <rect x="18" y="68" width="80" height="7" fill="#fff"/>
-  <path d="M72 75 V48 Q72 44 76 44 H90 L99 57 H102 Q107 57 107 62 V75 Z" fill="#fff"/>
-  <path d="M77 48 H88 L95 57 H77 Z" fill="#C41E2A"/>
-  <rect x="78" y="39.5" width="9" height="4.5" rx="1.2" fill="#F2A900"/>
-  <circle cx="32" cy="79" r="11" fill="#C41E2A"/><circle cx="32" cy="79" r="8.5" fill="#fff"/><circle cx="32" cy="79" r="3.5" fill="#C41E2A"/>
-  <circle cx="91" cy="79" r="11" fill="#C41E2A"/><circle cx="91" cy="79" r="8.5" fill="#fff"/><circle cx="91" cy="79" r="3.5" fill="#C41E2A"/>
-</g></g>
+<defs>
+<linearGradient id="vm-chrome" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#FFFFFF"/><stop offset=".28" stop-color="#C9CED6"/><stop offset=".5" stop-color="#6E7480"/>
+ <stop offset=".62" stop-color="#E9ECF0"/><stop offset="1" stop-color="#7C828D"/></linearGradient>
+<radialGradient id="vm-red" cx=".5" cy=".32" r=".75">
+ <stop offset="0" stop-color="#F0333F"/><stop offset=".55" stop-color="#C41E2A"/><stop offset="1" stop-color="#7A0C14"/></radialGradient>
+<linearGradient id="vm-gold" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#FFE27A"/><stop offset=".48" stop-color="#FFC21A"/><stop offset=".52" stop-color="#E89A00"/><stop offset="1" stop-color="#FFB300"/></linearGradient>
+<linearGradient id="vm-gloss" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<pattern id="vm-stripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
+ <rect width="7" height="14" fill="#000" fill-opacity=".16"/></pattern>
+</defs>
+<circle cx="60" cy="60" r="60" fill="url(#vm-chrome)"/>
+<circle cx="60" cy="60" r="55" fill="url(#vm-red)"/>
+<clipPath id="vm-mdisc"><circle cx="60" cy="60" r="55"/></clipPath>
+<g clip-path="url(#vm-mdisc)"><ellipse cx="60" cy="26" rx="52" ry="28" fill="url(#vm-gloss)"/></g>
+<g transform="translate(55 61) skewX(-8) scale(.76) translate(-41.5 -62)"><rect x="-14" y="46" width="22" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><rect x="-24" y="55" width="30" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><rect x="-10" y="64" width="18" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><path d="M10 68 L14 61.4 H72 V68 Z" fill="#fff"/>
+<path d="M18 62 V56 Q18 53 22 52 L30 50 L38 42 Q40 40 44 40 H54 Q57 40 59 43 L64 50 Q68 51 68 55 V62 Z" fill="#fff"/>
+<path d="M40.5 44 H48 V50 H34.5 Z M51 44 H55 L59.5 50 H51 Z" fill="#B3121F"/>
+<circle cx="28" cy="61" r="5.5" fill="#B3121F"/><circle cx="28" cy="61" r="3.2" fill="#fff"/>
+<circle cx="58" cy="61" r="5.5" fill="#B3121F"/><circle cx="58" cy="61" r="3.2" fill="#fff"/>
+<rect x="18" y="68" width="80" height="7" fill="#fff"/>
+<path d="M72 75 V48 Q72 44 76 44 H90 L99 57 H102 Q107 57 107 62 V75 Z" fill="#fff"/>
+<path d="M77 48 H88 L95 57 H77 Z" fill="#B3121F"/>
+<rect x="78" y="39.5" width="9" height="4.5" rx="1.2" fill="#FFC21A"/>
+<circle cx="32" cy="79" r="11" fill="#B3121F"/><circle cx="32" cy="79" r="8.5" fill="#fff"/><circle cx="32" cy="79" r="3.5" fill="#B3121F"/>
+<circle cx="91" cy="79" r="11" fill="#B3121F"/><circle cx="91" cy="79" r="8.5" fill="#fff"/><circle cx="91" cy="79" r="3.5" fill="#B3121F"/></g>
 </svg>
