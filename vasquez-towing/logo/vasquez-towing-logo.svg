@@ -1,47 +1,103 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" role="img" aria-label="Vasquez Towing, Northern Virginia">
-<defs>
-<linearGradient id="vl-chrome" x1="0" y1="0" x2="0" y2="1">
+<defs><linearGradient id="vl-chrome" x1="0" y1="0" x2="0" y2="1">
  <stop offset="0" stop-color="#FFFFFF"/><stop offset=".28" stop-color="#C9CED6"/><stop offset=".5" stop-color="#6E7480"/>
  <stop offset=".62" stop-color="#E9ECF0"/><stop offset="1" stop-color="#7C828D"/></linearGradient>
-<radialGradient id="vl-red" cx=".5" cy=".32" r=".75">
- <stop offset="0" stop-color="#F0333F"/><stop offset=".55" stop-color="#C41E2A"/><stop offset="1" stop-color="#7A0C14"/></radialGradient>
 <linearGradient id="vl-gold" x1="0" y1="0" x2="0" y2="1">
  <stop offset="0" stop-color="#FFE27A"/><stop offset=".48" stop-color="#FFC21A"/><stop offset=".52" stop-color="#E89A00"/><stop offset="1" stop-color="#FFB300"/></linearGradient>
-<linearGradient id="vl-gloss" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0" stop-color="#fff" stop-opacity=".42"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<pattern id="vl-stripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(-45)">
- <rect width="7" height="14" fill="#000" fill-opacity=".16"/></pattern>
-</defs>
+<linearGradient id="vl-paint" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#F04450"/><stop offset=".18" stop-color="#D42634"/><stop offset=".55" stop-color="#B8161F"/><stop offset="1" stop-color="#7E0B12"/></linearGradient>
+<linearGradient id="vl-alu" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#F4F6F8"/><stop offset=".45" stop-color="#B9BFC7"/><stop offset=".55" stop-color="#8D949E"/><stop offset="1" stop-color="#DADDE2"/></linearGradient>
+<linearGradient id="vl-glass" x1="0" y1="0" x2="1" y2="1">
+ <stop offset="0" stop-color="#5E7186"/><stop offset=".45" stop-color="#1F2833"/><stop offset=".5" stop-color="#3A4757"/><stop offset="1" stop-color="#11161D"/></linearGradient>
+<linearGradient id="vl-white" x1="0" y1="0" x2="0" y2="1">
+ <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#EEF0F3"/><stop offset=".8" stop-color="#C9CDD3"/><stop offset="1" stop-color="#9EA4AD"/></linearGradient>
+<radialGradient id="vl-rim" cx=".4" cy=".35" r=".7">
+ <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#B7BDC6"/><stop offset="1" stop-color="#5B616B"/></radialGradient>
+<radialGradient id="vl-amber" cx=".5" cy=".5" r=".5">
+ <stop offset="0" stop-color="#FFF3B0"/><stop offset=".5" stop-color="#FFB300"/><stop offset="1" stop-color="#FF8A00" stop-opacity="0"/></radialGradient>
+<radialGradient id="vl-night" cx=".5" cy=".3" r=".8"><stop offset="0" stop-color="#3B4250"/><stop offset=".6" stop-color="#1A1D24"/><stop offset="1" stop-color="#0B0C0F"/></radialGradient>
+<clipPath id="vl-disc"><circle cx="150" cy="150" r="106"/></clipPath></defs>
 <path id="vl-top" d="M36 150 A114 114 0 0 1 264 150" fill="none"/>
 <path id="vl-bot" d="M24 150 A126 126 0 0 0 276 150" fill="none"/>
 <circle cx="150" cy="150" r="150" fill="url(#vl-chrome)"/>
 <circle cx="150" cy="150" r="141" fill="#0E0F12"/>
 <circle cx="150" cy="150" r="136" fill="none" stroke="#FFC21A" stroke-width="2"/>
-<circle cx="150" cy="150" r="102" fill="url(#vl-chrome)"/>
-<circle cx="150" cy="150" r="97" fill="url(#vl-red)"/>
-<clipPath id="vl-disc"><circle cx="150" cy="150" r="97"/></clipPath>
+<circle cx="150" cy="150" r="110" fill="url(#vl-chrome)"/>
+<circle cx="150" cy="150" r="106" fill="url(#vl-night)"/>
 <g clip-path="url(#vl-disc)">
- <rect x="40" y="196" width="220" height="60" fill="url(#vl-stripes)"/>
- <ellipse cx="150" cy="84" rx="92" ry="50" fill="url(#vl-gloss)"/>
+ <rect x="40" y="152" width="220" height="110" fill="#22252B"/>
+ <rect x="40" y="152" width="220" height="2" fill="#4A4F57"/>
 </g>
 <g font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" text-anchor="middle">
  <text font-size="17" letter-spacing="5" fill="#fff"><textPath href="#vl-top" startOffset="50%">★ FLATBED TOWING ★</textPath></text>
  <text font-size="15" letter-spacing="4.5" fill="#FFC21A"><textPath href="#vl-bot" startOffset="50%">NORTHERN VIRGINIA</textPath></text>
 </g>
-<g transform="translate(150 113) skewX(-8) scale(1.12) translate(-58.5 -62)"><rect x="-24" y="46" width="22" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><rect x="-34" y="55" width="30" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><rect x="-20" y="64" width="18" height="4" rx="2" fill="#fff" fill-opacity="0.95"/><path d="M10 68 L14 61.4 H72 V68 Z" fill="#fff"/>
-<path d="M18 62 V56 Q18 53 22 52 L30 50 L38 42 Q40 40 44 40 H54 Q57 40 59 43 L64 50 Q68 51 68 55 V62 Z" fill="#fff"/>
-<path d="M40.5 44 H48 V50 H34.5 Z M51 44 H55 L59.5 50 H51 Z" fill="#B3121F"/>
-<circle cx="28" cy="61" r="5.5" fill="#B3121F"/><circle cx="28" cy="61" r="3.2" fill="#fff"/>
-<circle cx="58" cy="61" r="5.5" fill="#B3121F"/><circle cx="58" cy="61" r="3.2" fill="#fff"/>
-<rect x="18" y="68" width="80" height="7" fill="#fff"/>
-<path d="M72 75 V48 Q72 44 76 44 H90 L99 57 H102 Q107 57 107 62 V75 Z" fill="#fff"/>
-<path d="M77 48 H88 L95 57 H77 Z" fill="#B3121F"/>
-<rect x="78" y="39.5" width="9" height="4.5" rx="1.2" fill="#FFC21A"/>
-<circle cx="32" cy="79" r="11" fill="#B3121F"/><circle cx="32" cy="79" r="8.5" fill="#fff"/><circle cx="32" cy="79" r="3.5" fill="#B3121F"/>
-<circle cx="91" cy="79" r="11" fill="#B3121F"/><circle cx="91" cy="79" r="8.5" fill="#fff"/><circle cx="91" cy="79" r="3.5" fill="#B3121F"/></g>
-<path d="M30 146 H284 L270 196 H16 Z" fill="url(#vl-chrome)"/>
-<path d="M34 150 H278 L266 192 H22 Z" fill="#0E0F12"/>
-<text x="150" y="187" text-anchor="middle" font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" font-size="44" letter-spacing="1"
- transform="translate(150 0) skewX(-12) translate(-150 0) translate(40 0)" fill="url(#vl-gold)" stroke="#5A3A00" stroke-width=".8">VASQUEZ</text>
-<text x="150" y="226" text-anchor="middle" font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" font-size="17" letter-spacing="7" fill="#fff">TOWING</text>
+<g transform="translate(150 156) scale(.6) translate(-198 -150)"><ellipse cx="200" cy="151" rx="190" ry="6" fill="#000" fill-opacity=".45"/>
+<rect x="60" y="112" width="300" height="10" fill="#1E2024"/>
+<path d="M88 122 Q88 98 112 98 Q136 98 136 122 Z" fill="#141518"/>
+<circle cx="112" cy="126" r="24" fill="#141518"/>
+<circle cx="112" cy="126" r="20.6" fill="none" stroke="#2C2F35" stroke-width="2.4"/>
+<circle cx="112" cy="126" r="13.9" fill="url(#vl-rim)"/>
+<circle cx="112" cy="126" r="10.9" fill="none" stroke="#7D838D" stroke-width="1"/>
+<circle cx="112" cy="126" r="8.6" fill="#6A707A"/>
+<circle cx="112" cy="126" r="4.8" fill="#D9DDE2" stroke="#6A707A" stroke-width="1"/><circle cx="119.7" cy="126.0" r="1.4" fill="#4A4F57"/><circle cx="114.4" cy="133.3" r="1.4" fill="#4A4F57"/><circle cx="105.8" cy="130.5" r="1.4" fill="#4A4F57"/><circle cx="105.8" cy="121.5" r="1.4" fill="#4A4F57"/><circle cx="114.4" cy="118.7" r="1.4" fill="#4A4F57"/>
+<rect x="140" y="104" width="62" height="24" rx="2" fill="url(#vl-alu)" stroke="#6D747E" stroke-width="1"/><path d="M142 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M150 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M158 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M166 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M174 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M182 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/><path d="M190 108 l4 4 l-4 4 l-4 -4z" fill="#fff" fill-opacity=".35"/>
+<rect x="170" y="104" width="1" height="24" fill="#6D747E"/>
+<rect x="156" y="110" width="8" height="3" rx="1" fill="#4A4F57"/><rect x="180" y="110" width="8" height="3" rx="1" fill="#4A4F57"/>
+<path d="M12 106 L20 91 H248 V106 Z" fill="url(#vl-alu)" stroke="#6D747E" stroke-width="1"/><rect x="22" y="94" width="222" height=".8" fill="#fff" fill-opacity=".55"/><rect x="22" y="97" width="222" height=".8" fill="#fff" fill-opacity=".55"/><rect x="22" y="100" width="222" height=".8" fill="#fff" fill-opacity=".55"/>
+<rect x="20" y="104" width="228" height="3" fill="#4A4F57"/>
+<rect x="14" y="104" width="7" height="6" fill="#C41E2A"/>
+<g>
+ <path d="M30 80 Q30 68 40 66 L78 60 L104 42 Q110 37 120 37 L168 37 Q178 37 186 44 L204 59 Q222 61 228 69 L231 80 Q231 86 226 86 L35 86 Q30 86 30 80 Z" fill="url(#vl-white)" stroke="#8E949D" stroke-width="1"/>
+ <path d="M84 61 L106 44 Q110 41 118 41 L143 41 V61 Z" fill="url(#vl-glass)"/>
+ <path d="M148 41 H168 Q176 41 182 47 L196 61 H148 Z" fill="url(#vl-glass)"/>
+ <path d="M36 70 H226" stroke="#fff" stroke-width="1.6" stroke-opacity=".9"/>
+ <rect x="218" y="66" width="10" height="5" rx="2" fill="#E9EEF5" stroke="#8E949D" stroke-width=".8"/>
+ <rect x="31" y="68" width="6" height="5" rx="1" fill="#C41E2A"/>
+ <path d="M48 86 Q48 70 64 70 Q80 70 80 86 Z" fill="#2A2D33"/>
+ <path d="M180 86 Q180 70 196 70 Q212 70 212 86 Z" fill="#2A2D33"/>
+ <circle cx="64" cy="84" r="13" fill="#141518"/>
+<circle cx="64" cy="84" r="11.2" fill="none" stroke="#2C2F35" stroke-width="1.3"/>
+<circle cx="64" cy="84" r="7.5" fill="url(#vl-rim)"/>
+<circle cx="64" cy="84" r="5.9" fill="none" stroke="#7D838D" stroke-width="1"/>
+
+<circle cx="64" cy="84" r="2.6" fill="#D9DDE2" stroke="#6A707A" stroke-width="1"/><circle cx="68.1" cy="84.0" r="0.8" fill="#4A4F57"/><circle cx="65.3" cy="87.9" r="0.8" fill="#4A4F57"/><circle cx="60.6" cy="86.4" r="0.8" fill="#4A4F57"/><circle cx="60.6" cy="81.6" r="0.8" fill="#4A4F57"/><circle cx="65.3" cy="80.1" r="0.8" fill="#4A4F57"/><circle cx="196" cy="84" r="13" fill="#141518"/>
+<circle cx="196" cy="84" r="11.2" fill="none" stroke="#2C2F35" stroke-width="1.3"/>
+<circle cx="196" cy="84" r="7.5" fill="url(#vl-rim)"/>
+<circle cx="196" cy="84" r="5.9" fill="none" stroke="#7D838D" stroke-width="1"/>
+
+<circle cx="196" cy="84" r="2.6" fill="#D9DDE2" stroke="#6A707A" stroke-width="1"/><circle cx="200.1" cy="84.0" r="0.8" fill="#4A4F57"/><circle cx="197.3" cy="87.9" r="0.8" fill="#4A4F57"/><circle cx="192.6" cy="86.4" r="0.8" fill="#4A4F57"/><circle cx="192.6" cy="81.6" r="0.8" fill="#4A4F57"/><circle cx="197.3" cy="80.1" r="0.8" fill="#4A4F57"/>
+ <path d="M58 92 L64 84 L72 92 M190 92 L196 84 L204 92" stroke="#FFC21A" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
+</g>
+<rect x="240" y="50" width="4" height="42" fill="#3A3E45"/><rect x="246" y="50" width="4" height="42" fill="#3A3E45"/>
+<rect x="238" y="50" width="14" height="3" fill="#3A3E45"/><rect x="238" y="66" width="12" height="2" fill="#3A3E45"/>
+<path d="M252 124 V58 Q252 51 259 51 H290 Q297 51 300 57 L314 84 L355 86 Q368 87 371 95 L375 107 V121 Q375 124 371 124 H346 Q346 100 322 100 Q298 100 298 124 Z" fill="url(#vl-paint)" stroke="#5E080D" stroke-width="1"/>
+<path d="M258 57 H288 Q292 57 294 61 L306 82 H258 Z" fill="url(#vl-glass)"/>
+<path d="M262 59 L272 59 L262 74 Z" fill="#fff" fill-opacity=".18"/>
+<path d="M255 90 H372" stroke="#FF8A92" stroke-width="1.6" stroke-opacity=".7"/>
+<path d="M314 86 L370 89" stroke="#FFB0B5" stroke-width="1.2" stroke-opacity=".6"/>
+<path d="M306 86 V122 M256 86 H306" stroke="#6E0A10" stroke-width="1.2" fill="none"/>
+<rect x="290" y="94" width="10" height="3" rx="1.2" fill="url(#vl-chrome)"/>
+<path d="M300 70 L309 70 L309 80 L300 80 Z" fill="url(#vl-chrome)" stroke="#5B616B" stroke-width=".8"/>
+<path d="M300 74 L296 78" stroke="#5B616B" stroke-width="1.5"/>
+<rect x="367" y="92" width="9" height="9" rx="1.5" fill="#FFF8DC" stroke="#9AA0A8" stroke-width=".8"/>
+<rect x="367" y="102" width="9" height="4" rx="1" fill="#FF9F1A"/>
+<rect x="364" y="111" width="20" height="11" rx="3" fill="url(#vl-chrome)" stroke="#5B616B" stroke-width=".8"/>
+<rect x="256" y="124" width="44" height="4" rx="1.5" fill="url(#vl-chrome)"/>
+<rect x="315" y="77" width="10" height="5" rx="1" fill="#E8EAEE" stroke="#8E949D" stroke-width=".6"/>
+<rect x="262" y="45" width="30" height="6" rx="2" fill="#2A2D33"/>
+<rect x="264" y="46" width="12" height="4" rx="1.5" fill="#FFB300"/><rect x="278" y="46" width="12" height="4" rx="1.5" fill="#FFB300"/>
+<ellipse cx="277" cy="47" rx="26" ry="9" fill="url(#vl-amber)" fill-opacity=".55"/>
+<circle cx="322" cy="126" r="24" fill="#141518"/>
+<circle cx="322" cy="126" r="20.6" fill="none" stroke="#2C2F35" stroke-width="2.4"/>
+<circle cx="322" cy="126" r="13.9" fill="url(#vl-rim)"/>
+<circle cx="322" cy="126" r="10.9" fill="none" stroke="#7D838D" stroke-width="1"/>
+
+<circle cx="322" cy="126" r="4.8" fill="#D9DDE2" stroke="#6A707A" stroke-width="1"/><circle cx="329.7" cy="126.0" r="1.4" fill="#4A4F57"/><circle cx="324.4" cy="133.3" r="1.4" fill="#4A4F57"/><circle cx="315.8" cy="130.5" r="1.4" fill="#4A4F57"/><circle cx="315.8" cy="121.5" r="1.4" fill="#4A4F57"/><circle cx="324.4" cy="118.7" r="1.4" fill="#4A4F57"/></g>
+<path d="M30 168 H284 L270 214 H16 Z" fill="url(#vl-chrome)"/>
+<path d="M34 172 H278 L266 210 H22 Z" fill="#0E0F12"/>
+<text x="150" y="205" text-anchor="middle" font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" font-size="40" letter-spacing="1"
+ transform="translate(150 0) skewX(-12) translate(-150 0) translate(38 0)" fill="url(#vl-gold)" stroke="#5A3A00" stroke-width=".8">VASQUEZ</text>
+<text x="150" y="238" text-anchor="middle" font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" font-size="15" letter-spacing="7" fill="#fff">TOWING</text>
 </svg>
