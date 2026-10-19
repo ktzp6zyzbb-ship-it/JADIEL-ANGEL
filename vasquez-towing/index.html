@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vasquez Towing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Vasquez Towing: flatbed towing anywhere in Northern Virginia. Owner Darwin Vasquez comes to you. Call or text 571-568-1530.">
+<meta property="og:title" content="Vasquez Towing | Northern Virginia Flatbed Towing">
+<meta property="og:description" content="Darwin Vasquez comes to you, wherever you are in Northern Virginia. Call or text 571-568-1530.">
+<meta property="og:image" content="img/truck-day.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23C41E2A'/%3E%3Cpath d='M16 16h9l7 22 7-22h9L37 48h-10z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Overpass:wght@700;800&display=swap" rel="stylesheet">
+<style>
+/* Layout: dark photo hero with the phone number as the headline, then plain
+   light sections built on asphalt/steel neutrals; service area drawn as real
+   Virginia highway signage. */
+:root {
+  --red: #C41E2A;          /* the truck */
+  --red-ink: #A8161F;      /* red used for text on light ground */
+  --amber: #F2A900;        /* strobe light */
+  --asphalt: #15171B;
+  --bg: #F1F2F4;           /* brushed aluminum */
+  --surface: #FFFFFF;
+  --ink: #17191E;
+  --muted: #59606B;
+  --line: #D7DBE0;
+  --sign-green: #0E6B3B;
+  --sign-white: #FFFFFF;
+  --shield-blue: #1A3F8F;
+  --shield-red: #C8102E;
+  --hero-ink: #FFFFFF;
+  --hero-muted: #C9CDD3;
+
+  --f-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --f-body: "Barlow", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --f-label: "Barlow Condensed", "Arial Narrow", "Segoe UI", sans-serif;
+  --f-sign: "Overpass", "Barlow", Helvetica, Arial, sans-serif;
+
+  --gutter-l: max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(20px, env(safe-area-inset-right, 0px));
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --red-ink: #FF5A62;
+    --bg: #111317;
+    --surface: #1A1D22;
+    --ink: #ECEEF1;
+    --muted: #A0A6B0;
+    --line: #2B2F36;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --red-ink: #FF5A62;
+  --bg: #111317;
+  --surface: #1A1D22;
+  --ink: #ECEEF1;
+  --muted: #A0A6B0;
+  --line: #2B2F36;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px); z-index: 60;
+  background: var(--asphalt);
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+p { margin: 0; }
+:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+
+.wrap {
+  max-width: 1180px; margin: 0 auto;
+  padding-left: var(--gutter-l); padding-right: var(--gutter-r);
+}
+.label {
+  font-family: var(--f-label); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; font-size: .85rem;
+  color: var(--red-ink);
+}
+.section { padding-block: clamp(64px, 9vw, 112px); }
+.section-head { display: grid; gap: 14px; max-width: 46rem; margin-bottom: clamp(36px, 5vw, 56px); }
+.section-head h2 {
+  font-family: var(--f-display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.4rem, 5.4vw, 3.9rem); line-height: .95; letter-spacing: .005em;
+}
+.section-head p { color: var(--muted); font-size: 1.125rem; max-width: 40rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 24px; border-radius: 6px; border: 2px solid transparent;
+  font-family: var(--f-label); font-weight: 700; font-size: 1.15rem;
+  letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+  cursor: pointer; transition: transform .15s ease, background-color .15s ease, border-color .15s ease;
+}
+.btn svg { width: 20px; height: 20px; flex: none; }
+.btn:hover { transform: translateY(-1px); }
+.btn-red { background: var(--red); color: #fff; }
+.btn-red:hover { background: #A8161F; }
+.btn-amber { background: var(--amber); color: var(--asphalt); }
+.btn-amber:hover { background: #FFBD1F; }
+.btn-ghost { border-color: currentColor; background: transparent; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+
+/* Header */
+.site-header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: var(--asphalt); color: var(--hero-ink);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark {
+  width: 42px; height: 42px; border-radius: 8px; background: var(--red);
+  display: grid; place-items: center; flex: none;
+}
+.brand-mark svg { width: 26px; height: 26px; }
+.brand-name {
+  font-family: var(--f-display); font-weight: 900; font-size: 1.6rem;
+  text-transform: uppercase; line-height: .9; letter-spacing: .02em;
+}
+.brand-name small {
+  display: block; font-family: var(--f-label); font-weight: 600; font-size: .72rem;
+  letter-spacing: .2em; color: var(--hero-muted); margin-top: 3px;
+}
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a:not(.btn) {
+  font-family: var(--f-label); font-weight: 600; font-size: 1rem; letter-spacing: .08em;
+  text-transform: uppercase; text-decoration: none; color: var(--hero-muted);
+}
+.nav a:not(.btn):hover { color: var(--hero-ink); }
+.nav .btn { min-height: 44px; padding: 0 18px; font-size: 1.05rem; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .nav .btn span { display: none; } .nav .btn { padding: 0 14px; } }
+
+/* Hero */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: var(--asphalt); color: var(--hero-ink);
+}
+.hero-photo {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover; object-position: 70% 60%;
+}
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(14,15,19,.94) 0%, rgba(14,15,19,.82) 38%, rgba(14,15,19,.25) 75%, rgba(14,15,19,.1) 100%),
+    linear-gradient(0deg, rgba(14,15,19,.85) 0%, rgba(14,15,19,0) 40%);
+}
+.hero-inner { padding-block: clamp(72px, 11vw, 140px) clamp(56px, 8vw, 96px); display: grid; gap: 28px; }
+.hero-tag { display: flex; align-items: center; gap: 12px; color: var(--hero-muted); }
+.hero-tag .label { color: var(--hero-muted); }
+.strobe {
+  width: 12px; height: 12px; border-radius: 50%; background: var(--amber); flex: none;
+  box-shadow: 0 0 0 0 rgba(242,169,0,.7);
+  animation: strobe 1.6s ease-out infinite;
+}
+@keyframes strobe {
+  0% { box-shadow: 0 0 0 0 rgba(242,169,0,.75); }
+  70% { box-shadow: 0 0 0 14px rgba(242,169,0,0); }
+  100% { box-shadow: 0 0 0 0 rgba(242,169,0,0); }
+}
+@media (prefers-reduced-motion: reduce) { .strobe { animation: none; } }
+.hero h1 {
+  font-family: var(--f-display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(3.2rem, 9vw, 7.25rem); line-height: .86; letter-spacing: -.005em;
+  max-width: 10ch;
+}
+.hero h1 em { font-style: normal; color: var(--amber); display: block; }
+.hero-lede { max-width: 34rem; font-size: clamp(1.1rem, 1.6vw, 1.3rem); color: var(--hero-muted); }
+.hero-lede strong { color: var(--hero-ink); font-weight: 600; }
+.hero-phone { display: grid; gap: 4px; }
+.hero-phone .label { color: var(--hero-muted); }
+.hero-phone a {
+  font-family: var(--f-display); font-weight: 800; font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  line-height: 1; letter-spacing: .02em; text-decoration: none; color: var(--hero-ink);
+  font-variant-numeric: tabular-nums; user-select: all;
+}
+.hero-phone a:hover { color: var(--amber); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-actions .btn-ghost { color: var(--hero-ink); }
+
+.hazard {
+  height: 14px;
+  background: repeating-linear-gradient(-45deg, var(--amber) 0 18px, var(--asphalt) 18px 36px);
+}
+
+/* Facts strip */
+.facts { background: var(--asphalt); color: var(--hero-ink); }
+.facts ul {
+  list-style: none; margin: 0; padding-block: 26px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px;
+}
+.facts li { display: grid; gap: 2px; padding-left: 16px; border-left: 2px solid rgba(255,255,255,.14); }
+.facts b { font-family: var(--f-display); font-weight: 800; font-size: 1.5rem; text-transform: uppercase; letter-spacing: .02em; line-height: 1.1; }
+.facts span { color: var(--hero-muted); font-size: .95rem; }
+@media (max-width: 860px) { .facts ul { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; } }
+
+/* Services */
+.services {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+}
+.service {
+  display: grid; gap: 12px; align-content: start;
+  padding: 32px 28px 36px 0; border-bottom: 1px solid var(--line);
+}
+.service:not(:nth-child(3n+1)) { padding-left: 28px; border-left: 1px solid var(--line); }
+.service svg { width: 40px; height: 40px; color: var(--red-ink); }
+.service h3 { font-family: var(--f-display); font-weight: 800; font-size: 1.75rem; text-transform: uppercase; line-height: 1; letter-spacing: .01em; }
+.service p { color: var(--muted); }
+@media (max-width: 900px) {
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+  .service:nth-child(even) { padding-left: 24px; border-left: 1px solid var(--line); }
+}
+@media (max-width: 580px) {
+  .services { grid-template-columns: minmax(0, 1fr); }
+  .service, .service:nth-child(even) { padding: 26px 0 28px; border-left: 0; }
+}
+
+/* Owner + truck */
+.owner { background: var(--surface); border-block: 1px solid var(--line); }
+.owner-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); align-items: center; }
+.owner-photo { position: relative; }
+.owner-photo img { width: 100%; aspect-ratio: 1206 / 779; object-fit: cover; border-radius: 10px; }
+.owner-photo figcaption {
+  margin-top: 12px; font-family: var(--f-label); font-weight: 600; font-size: .9rem;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--muted);
+}
+.owner-copy { display: grid; gap: 20px; min-width: 0; }
+.owner-copy h2 {
+  font-family: var(--f-display); font-weight: 800; text-transform: uppercase;
+  font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: .95;
+}
+.owner-copy > p { color: var(--muted); font-size: 1.125rem; }
+.owner-copy > p strong { color: var(--ink); font-weight: 600; }
+.spec { margin: 8px 0 0; display: grid; border-top: 1px solid var(--line); }
+.spec div { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 16px; padding-block: 12px; border-bottom: 1px solid var(--line); }
+.spec dt { font-family: var(--f-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .9rem; color: var(--muted); padding-top: 2px; }
+.spec dd { margin: 0; font-weight: 500; }
+@media (max-width: 860px) { .owner-grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 420px) { .spec div { grid-template-columns: minmax(0, 1fr); gap: 2px; } }
+
+/* Steps */
+.steps-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: step; }
+.steps li {
+  counter-increment: step; display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 20px;
+  padding-block: 22px; border-top: 1px solid var(--line);
+}
+.steps li:last-child { border-bottom: 1px solid var(--line); }
+.steps li::before {
+  content: counter(step);
+  font-family: var(--f-display); font-weight: 900; font-size: 3.2rem; line-height: .85; color: var(--red-ink);
+}
+.steps h3 { font-family: var(--f-display); font-weight: 800; font-size: 1.55rem; text-transform: uppercase; line-height: 1.05; margin-bottom: 6px; }
+.steps p { color: var(--muted); }
+.safety {
+  background: var(--asphalt); color: var(--hero-ink); border-radius: 10px;
+  padding: 28px; display: grid; gap: 14px; position: relative; overflow: hidden;
+}
+.safety::before { content: ""; position: absolute; inset: 0 0 auto; height: 8px; background: repeating-linear-gradient(-45deg, var(--amber) 0 12px, var(--asphalt) 12px 24px); }
+.safety .label { color: var(--amber); margin-top: 6px; }
+.safety h3 { font-family: var(--f-display); font-weight: 800; font-size: 1.8rem; text-transform: uppercase; line-height: 1; }
+.safety ul { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; color: var(--hero-muted); }
+.safety li::marker { color: var(--amber); }
+@media (max-width: 860px) { .steps-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Service area */
+.area { background: var(--surface); border-block: 1px solid var(--line); }
+.shields { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; align-items: center; }
+.shield { width: 72px; height: 72px; }
+.shield text { font-family: var(--f-sign); font-weight: 800; }
+.shields-note { font-family: var(--f-label); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-size: .95rem; margin-left: 6px; }
+.signs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.sign {
+  background: var(--sign-green); color: var(--sign-white);
+  border-radius: 12px; padding: 6px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.12), 0 10px 24px -14px rgba(0,0,0,.45);
+}
+.sign-inner {
+  border: 3px solid var(--sign-white); border-radius: 8px; padding: 18px 22px 20px;
+  display: grid; gap: 10px; height: 100%;
+}
+.sign h3 { font-family: var(--f-sign); font-weight: 800; font-size: clamp(1.45rem, 2.6vw, 1.9rem); line-height: 1.05; letter-spacing: .005em; }
+.sign p { font-family: var(--f-sign); font-weight: 700; font-size: 1.02rem; line-height: 1.45; opacity: .92; }
+.sign-arrow { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sign-arrow svg { width: 30px; height: 30px; flex: none; }
+.area-foot { margin-top: 28px; color: var(--muted); font-size: 1.1rem; }
+.area-foot a { color: var(--red-ink); font-weight: 600; }
+@media (max-width: 700px) { .signs { grid-template-columns: minmax(0, 1fr); } }
+
+/* Request form */
+.request-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 5vw, 64px); align-items: start; }
+.form { display: grid; gap: 18px; }
+.field { display: grid; gap: 6px; }
+.field-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.field label { font-family: var(--f-label); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; font-size: .9rem; }
+.field label span { color: var(--muted); font-weight: 600; letter-spacing: .04em; text-transform: none; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--surface);
+  border: 1.5px solid var(--line); border-radius: 6px; padding: 12px 14px; min-height: 50px;
+}
+.field textarea { min-height: 96px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(196,30,42,.18); }
+.loc-btn {
+  justify-self: start; background: none; border: 0; padding: 4px 0; cursor: pointer;
+  font: 600 .95rem var(--f-body); color: var(--red-ink); display: inline-flex; align-items: center; gap: 6px;
+}
+.loc-btn svg { width: 16px; height: 16px; }
+.loc-status { font-size: .92rem; color: var(--muted); }
+.preview {
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px);
+  background: var(--asphalt); color: var(--hero-ink); border-radius: 12px; padding: 26px;
+  display: grid; gap: 18px;
+}
+.preview .label { color: var(--amber); }
+.bubble {
+  background: #2A7BF6; color: #fff; border-radius: 18px 18px 4px 18px;
+  padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 1rem; line-height: 1.5;
+  justify-self: end; max-width: 100%;
+}
+.preview-to { font-size: .95rem; color: var(--hero-muted); }
+.preview-to b { color: var(--hero-ink); font-variant-numeric: tabular-nums; }
+.preview-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.preview-actions .btn { flex: 1 1 180px; }
+.preview-actions .btn-ghost { color: var(--hero-ink); }
+.copy-status { font-size: .92rem; color: var(--hero-muted); min-height: 1.4em; }
+.preview-note { font-size: .95rem; color: var(--hero-muted); border-top: 1px solid rgba(255,255,255,.12); padding-top: 16px; }
+.preview-note a { color: var(--hero-ink); font-weight: 600; }
+@media (max-width: 900px) { .request-grid { grid-template-columns: minmax(0, 1fr); } .preview { position: static; } }
+@media (max-width: 480px) { .field-row { grid-template-columns: minmax(0, 1fr); } }
+
+/* Final call band */
+.cta-band { background: var(--red); color: #fff; }
+.cta-inner { padding-block: clamp(48px, 7vw, 80px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px; }
+.cta-inner h2 { font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: .92; max-width: 16ch; }
+.cta-inner a.cta-phone {
+  font-family: var(--f-display); font-weight: 800; font-size: clamp(2.2rem, 5.5vw, 3.8rem); line-height: 1;
+  text-decoration: none; letter-spacing: .02em; font-variant-numeric: tabular-nums;
+  border-bottom: 4px solid rgba(255,255,255,.4); padding-bottom: 4px;
+}
+.cta-inner a.cta-phone:hover { border-color: #fff; }
+
+/* Footer */
+.footer { background: var(--asphalt); color: var(--hero-muted); }
+.footer-inner { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px 40px; font-size: .98rem; }
+.footer .brand-name { color: var(--hero-ink); }
+.footer p + p { margin-top: 6px; }
+.footer a { color: var(--hero-ink); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+/* Phone call bar */
+.callbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 55; display: none;
+  gap: 10px; background: var(--asphalt); border-top: 1px solid rgba(255,255,255,.1);
+  padding: 10px max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px));
+}
+.callbar .btn { flex: 1; min-height: 50px; }
+.callbar .btn-ghost { color: #fff; }
+@media (max-width: 700px) {
+  .callbar { display: flex; }
+  body { padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-text" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2zm3 6v2h2V9zm4 0v2h2V9zm4 0v2h2V9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 19 19 5M9 5h10v10"/></symbol>
+  <symbol id="i-hook" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 2v9m0 0a4 4 0 1 1-4 4M9 2h6"/></symbol>
+</svg>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="Vasquez Towing home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" style="color:#fff"><use href="#i-hook"/></svg></span>
+      <span class="brand-name">Vasquez Towing<small>Northern Virginia</small></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#area">Service area</a>
+      <a href="#request">Request a tow</a>
+      <a class="btn btn-red" href="tel:+15715681530"><svg><use href="#i-phone"/></svg><span>571-568-1530</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <img class="hero-photo" src="img/hero-dusk.jpg" alt="Vasquez Towing's red Ford flatbed loading a white Audi in a parking lot at dusk, amber light on">
+    <div class="wrap hero-inner">
+      <div class="hero-tag"><span class="strobe" aria-hidden="true"></span><span class="label">Flatbed towing · Owner-operated</span></div>
+      <h1>Broke down? <em>Darwin comes to you.</em></h1>
+      <p class="hero-lede">Anywhere you are in <strong>Northern Virginia</strong>: the shoulder of I-66, a parking garage in Arlington, or your driveway in Manassas. Tell Darwin where you are and where the car needs to go.</p>
+      <div class="hero-phone">
+        <span class="label">Call or text Darwin Vasquez</span>
+        <a href="tel:+15715681530">571-568-1530</a>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-amber" href="tel:+15715681530"><svg><use href="#i-phone"/></svg>Call now</a>
+        <a class="btn btn-ghost" href="#request"><svg><use href="#i-text"/></svg>Text your location</a>
+      </div>
+    </div>
+  </section>
+  <div class="hazard" aria-hidden="true"></div>
+
+  <section class="facts" aria-label="At a glance">
+    <ul class="wrap">
+      <li><b>Flatbed</b><span>Your car rides on the bed</span></li>
+      <li><b>We come to you</b><span>Roadside, home, work, or shop</span></li>
+      <li><b>Owner on the phone</b><span>You talk to the driver</span></li>
+      <li><b>All of NoVA</b><span>Fairfax to Loudoun to PW</span></li>
+    </ul>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">What we tow</span>
+        <h2>Towing &amp; transport</h2>
+        <p>One flatbed rollback handles most of what goes wrong with a car, plus the moves you plan ahead.</p>
+      </div>
+      <ul class="services">
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M4 26v-6l5-8h16l6 8h5v6H4z"/><circle cx="11" cy="27" r="3.5"/><circle cx="29" cy="27" r="3.5"/><path d="M20 4v5M14 6l2 3M26 6l-2 3"/></svg>
+          <h3>Breakdowns</h3>
+          <p>Won't start, overheated, or died on the shoulder. Darwin picks it up and takes it to your mechanic or home.</p>
+        </li>
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M20 5 36 33H4z"/><path d="M20 15v8M20 28v.5"/></svg>
+          <h3>Accident towing</h3>
+          <p>After a collision he loads the car and takes it to the body shop, the insurance lot, or wherever you choose.</p>
+        </li>
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 30h34M6 30l6-12h22l3 12"/><path d="M14 18v-4h14l3 4"/><circle cx="14" cy="30" r="0.5"/></svg>
+          <h3>Vehicle transport</h3>
+          <p>Moving a car you just bought, sold, or need at the dealer, auction, or a shop across town.</p>
+        </li>
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 27h34"/><path d="M6 27v-4l4-6h17l6 6h3v4"/><circle cx="12" cy="27" r="3"/><circle cx="29" cy="27" r="3"/><path d="M3 33h34"/></svg>
+          <h3>Low &amp; AWD cars</h3>
+          <p>All-wheel drive, lowered, and luxury cars ride flat with all four wheels off the road. Nothing drags.</p>
+        </li>
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M8 6v28M8 10h12l-3 5 3 5H8"/><path d="M26 34V20l6-4 6 4v14"/></svg>
+          <h3>Non-running cars</h3>
+          <p>A car that has been sitting, won't roll, or is headed to the junkyard gets winched onto the bed.</p>
+        </li>
+        <li class="service">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 34c4-6 2-12 8-16s8-10 6-14"/><circle cx="12" cy="34" r="2.5"/><circle cx="26" cy="5" r="2.5"/><path d="M30 26h6M33 23v6M4 12h6"/></svg>
+          <h3>Local &amp; long distance</h3>
+          <p>Across town or out of the area. Call with both addresses and Darwin will give you a quote.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section owner" id="about">
+    <div class="wrap owner-grid">
+      <figure class="owner-photo" style="margin:0">
+        <img src="img/truck-day.jpg" alt="White Audi strapped down on the bed of Vasquez Towing's red Ford Super Duty flatbed at a gas station" loading="lazy">
+        <figcaption>The Vasquez Towing rig: red Ford Super Duty rollback</figcaption>
+      </figure>
+      <div class="owner-copy">
+        <span class="label">Meet the owner</span>
+        <h2>One truck. One owner. Your car on the bed.</h2>
+        <p><strong>Vasquez Towing is Darwin Vasquez.</strong> When you call, you're talking to the person who will drive out to get you. He'll ask where you are, where the car is going, and what you drive, then tell you when he can be there.</p>
+        <p>Every car goes up on the flatbed and gets strapped down at the wheels, the same way he'd want his own car moved.</p>
+        <dl class="spec">
+          <div><dt>Truck</dt><dd>Ford Super Duty flatbed rollback</dd></div>
+          <div><dt>Loading</dt><dd>Tilting bed with winch, so the car never drives itself up</dd></div>
+          <div><dt>Tie-down</dt><dd>Wheel straps on all four corners</dd></div>
+          <div><dt>Coverage</dt><dd>Northern Virginia. Darwin comes to you.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">How it works</span>
+        <h2>From the call to drop-off</h2>
+      </div>
+      <div class="steps-grid">
+        <ol class="steps">
+          <li><div><h3>Call or text 571-568-1530</h3><p>Darwin answers his own phone. If he's mid-tow, text and he'll get right back to you.</p></div></li>
+          <li><div><h3>Say where you are</h3><p>An address, a cross street, or the highway, direction, and nearest exit. Then where the car is going and what you drive.</p></div></li>
+          <li><div><h3>Darwin drives to you</h3><p>He tells you about when he'll arrive. Wait somewhere safe and keep your phone on.</p></div></li>
+          <li><div><h3>Loaded, strapped, delivered</h3><p>The car is winched onto the bed, strapped at the wheels, and dropped where you asked.</p></div></li>
+        </ol>
+        <aside class="safety" aria-label="Safety while you wait">
+          <span class="label">While you wait</span>
+          <h3>Stay safe on the roadside</h3>
+          <ul>
+            <li>Turn on your hazard lights.</li>
+            <li>On a highway, get out on the side away from traffic and stand behind the guardrail.</li>
+            <li>Don't stand between your car and traffic.</li>
+            <li>At night, leave your parking lights on so Darwin can spot you.</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section area" id="area">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="label">Service area</span>
+        <h2>Wherever you are in Northern Virginia</h2>
+        <p>On the Beltway, out on Route 28, or parked at home. If you're in one of these places, Darwin can come get you.</p>
+      </div>
+
+      <div class="shields" aria-label="Highways covered: I-66, I-95, I-395, I-495">
+        <svg class="shield" viewBox="0 0 100 100" role="img" aria-label="Interstate 66"><use href="#shield-base"/><text x="50" y="74" text-anchor="middle" font-size="40" fill="#fff">66</text></svg>
+        <svg class="shield" viewBox="0 0 100 100" role="img" aria-label="Interstate 95"><use href="#shield-base"/><text x="50" y="74" text-anchor="middle" font-size="40" fill="#fff">95</text></svg>
+        <svg class="shield" viewBox="0 0 100 100" role="img" aria-label="Interstate 395"><use href="#shield-base"/><text x="50" y="72" text-anchor="middle" font-size="31" fill="#fff">395</text></svg>
+        <svg class="shield" viewBox="0 0 100 100" role="img" aria-label="Interstate 495"><use href="#shield-base"/><text x="50" y="72" text-anchor="middle" font-size="31" fill="#fff">495</text></svg>
+        <span class="shields-note">+ Route 1, 7, 28, 50 &amp; the Dulles Toll Road</span>
+      </div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <clipPath id="shield-top"><rect x="0" y="0" width="100" height="33"/></clipPath>
+          <symbol id="shield-base" viewBox="0 0 100 100">
+            <path d="M8 8c14 4 28 4 42-3 14 7 28 7 42 3 6 34 2 62-42 90C6 70 2 42 8 8z" fill="#fff"/>
+            <path d="M13 13c12 3 25 3 37-3 12 6 25 6 37 3 4 30 0 55-37 79C13 68 9 43 13 13z" fill="#1A3F8F"/>
+            <path d="M13 13c12 3 25 3 37-3 12 6 25 6 37 3 1 7 1 14 1 20H12c0-6 0-13 1-20z" fill="#C8102E"/>
+            <rect x="12" y="32" width="76" height="3" fill="#fff"/>
+          </symbol>
+        </defs>
+      </svg>
+
+      <div class="signs">
+        <div class="sign"><div class="sign-inner">
+          <div class="sign-arrow"><h3>Fairfax County</h3><svg aria-hidden="true"><use href="#i-arrow"/></svg></div>
+          <p>Fairfax · Reston · Herndon · Vienna · Tysons · McLean · Chantilly · Centreville · Springfield · Burke · Annandale · Lorton</p>
+        </div></div>
+        <div class="sign"><div class="sign-inner">
+          <div class="sign-arrow"><h3>Arlington &amp; Alexandria</h3><svg aria-hidden="true"><use href="#i-arrow"/></svg></div>
+          <p>Arlington · Crystal City · Ballston · Alexandria · Old Town · Falls Church</p>
+        </div></div>
+        <div class="sign"><div class="sign-inner">
+          <div class="sign-arrow"><h3>Loudoun County</h3><svg aria-hidden="true"><use href="#i-arrow"/></svg></div>
+          <p>Leesburg · Ashburn · Sterling · Dulles · South Riding · Purcellville</p>
+        </div></div>
+        <div class="sign"><div class="sign-inner">
+          <div class="sign-arrow"><h3>Prince William County</h3><svg aria-hidden="true"><use href="#i-arrow"/></svg></div>
+          <p>Manassas · Manassas Park · Woodbridge · Dale City · Gainesville · Haymarket · Dumfries</p>
+        </div></div>
+      </div>
+      <p class="area-foot">Don't see your town? Call <a href="tel:+15715681530">571-568-1530</a> and ask. Darwin travels for longer trips too.</p>
+    </div>
+  </section>
+
+  <section class="section" id="request">
+    <div class="wrap request-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="label">Request a tow</span>
+          <h2>Text Darwin the details</h2>
+          <p>Fill this in and it turns into a text message on your phone, ready to send. Calling is still the fastest way to get a truck moving.</p>
+        </div>
+        <form class="form" id="tow-form" novalidate>
+          <div class="field-row">
+            <div class="field">
+              <label for="f-name">Your name</label>
+              <input id="f-name" name="name" autocomplete="name" value="Maria">
+            </div>
+            <div class="field">
+              <label for="f-problem">What happened</label>
+              <select id="f-problem" name="problem">
+                <option>Car won't start</option>
+                <option>Accident</option>
+                <option selected>Broke down on the road</option>
+                <option>Flat tire / can't drive it</option>
+                <option>Need a car moved</option>
+                <option>Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-pickup">Pickup location <span>(address, or highway + direction + exit)</span></label>
+            <input id="f-pickup" name="pickup" value="I-66 West near exit 55, Fair Oaks">
+            <button type="button" class="loc-btn" id="loc-btn"><svg aria-hidden="true"><use href="#i-pin"/></svg>Use my current location</button>
+            <span class="loc-status" id="loc-status" role="status"></span>
+          </div>
+          <div class="field">
+            <label for="f-dropoff">Drop-off <span>(shop, home, dealer…)</span></label>
+            <input id="f-dropoff" name="dropoff" value="My mechanic on Lee Hwy, Fairfax">
+          </div>
+          <div class="field">
+            <label for="f-vehicle">Vehicle <span>(year, make, model)</span></label>
+            <input id="f-vehicle" name="vehicle" value="2012 Audi A4, white">
+          </div>
+          <div class="field">
+            <label for="f-notes">Anything else <span>(optional)</span></label>
+            <textarea id="f-notes" name="notes" placeholder="AWD, low to the ground, keys in hand, etc."></textarea>
+          </div>
+        </form>
+      </div>
+
+      <aside class="preview" aria-label="Message preview">
+        <span class="label">Your message</span>
+        <div class="preview-to">To: <b>Darwin · 571-568-1530</b></div>
+        <div class="bubble" id="bubble"></div>
+        <div class="preview-actions">
+          <a class="btn btn-amber" id="sms-link" href="sms:+15715681530"><svg><use href="#i-text"/></svg>Text this to Darwin</a>
+          <button type="button" class="btn btn-ghost" id="copy-btn">Copy message</button>
+        </div>
+        <span class="copy-status" id="copy-status" role="status"></span>
+        <p class="preview-note">The example above is filled in so you can see how it works. Replace it with your details. In a hurry? <a href="tel:+15715681530">Call 571-568-1530</a>.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-inner">
+      <h2>Stuck right now? Make the call.</h2>
+      <a class="cta-phone" href="tel:+15715681530">571-568-1530</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div>
+      <div class="brand-name">Vasquez Towing<small>Northern Virginia</small></div>
+    </div>
+    <div>
+      <p>Owner: Darwin Vasquez</p>
+      <p>Call or text: <a href="tel:+15715681530">571-568-1530</a></p>
+    </div>
+    <div>
+      <p>Serving Fairfax, Arlington, Alexandria, Loudoun &amp; Prince William</p>
+      <p>&copy; <span id="year">2026</span> Vasquez Towing</p>
+    </div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-red" href="tel:+15715681530"><svg><use href="#i-phone"/></svg>Call Darwin</a>
+  <a class="btn btn-ghost" href="sms:+15715681530"><svg><use href="#i-text"/></svg>Text</a>
+</div>
+
+<script>
+(function () {
+  var PHONE = "+15715681530";
+  var form = document.getElementById("tow-form");
+  var bubble = document.getElementById("bubble");
+  var smsLink = document.getElementById("sms-link");
+  var copyBtn = document.getElementById("copy-btn");
+  var copyStatus = document.getElementById("copy-status");
+  var locBtn = document.getElementById("loc-btn");
+  var locStatus = document.getElementById("loc-status");
+
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  function buildMessage() {
+    var name = val("f-name");
+    var lines = ["Hi Darwin, I need a tow" + (name ? ". This is " + name + "." : ".")];
+    lines.push("Problem: " + val("f-problem"));
+    if (val("f-pickup")) lines.push("Pickup: " + val("f-pickup"));
+    if (val("f-dropoff")) lines.push("Drop-off: " + val("f-dropoff"));
+    if (val("f-vehicle")) lines.push("Vehicle: " + val("f-vehicle"));
+    if (val("f-notes")) lines.push("Notes: " + val("f-notes"));
+    return lines.join("\n");
+  }
+
+  function update() {
+    var msg = buildMessage();
+    bubble.textContent = msg;
+    smsLink.href = "sms:" + PHONE + "?&body=" + encodeURIComponent(msg);
+  }
+
+  form.addEventListener("input", update);
+  form.addEventListener("change", update);
+  form.addEventListener("submit", function (e) { e.preventDefault(); });
+  update();
+
+  copyBtn.addEventListener("click", function () {
+    var msg = buildMessage();
+    function fallback() {
+      var range = document.createRange();
+      range.selectNodeContents(bubble);
+      var sel = window.getSelection();
+      sel.removeAllRanges(); sel.addRange(range);
+      copyStatus.textContent = "Message selected. Copy it, then text it to 571-568-1530.";
+    }
+    try {
+      navigator.clipboard.writeText(msg).then(function () {
+        copyStatus.textContent = "Copied. Paste it into a text to 571-568-1530.";
+      }, fallback);
+    } catch (e) { fallback(); }
+  });
+
+  locBtn.addEventListener("click", function () {
+    if (!("geolocation" in navigator)) {
+      locStatus.textContent = "Your browser can't share location. Type the address or nearest exit instead.";
+      return;
+    }
+    locStatus.textContent = "Finding your location…";
+    try {
+      navigator.geolocation.getCurrentPosition(function (pos) {
+        var lat = pos.coords.latitude.toFixed(5), lng = pos.coords.longitude.toFixed(5);
+        document.getElementById("f-pickup").value = "https://maps.google.com/?q=" + lat + "," + lng;
+        locStatus.textContent = "Location added as a map link.";
+        update();
+      }, function () {
+        locStatus.textContent = "Couldn't get your location. Type the address or nearest exit instead.";
+      }, { enableHighAccuracy: true, timeout: 10000 });
+    } catch (e) {
+      locStatus.textContent = "Couldn't get your location. Type the address or nearest exit instead.";
+    }
+  });
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
