@@ -9,10 +9,11 @@
 <meta property="og:title" content="Vasquez Towing | Northern Virginia Flatbed Towing">
 <meta property="og:description" content="Darwin Vasquez comes to you, wherever you are in Northern Virginia. Call or text 571-568-1530.">
 <meta property="og:image" content="img/truck-day.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23C41E2A'/%3E%3Cpath d='M16 16h9l7 22 7-22h9L37 48h-10z' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="icon" href="logo/vasquez-towing-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo/vasquez-towing-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Overpass:wght@700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&family=Overpass:wght@700;800&family=Inter:wght@900&display=swap" rel="stylesheet">
 <style>
 /* Layout: dark photo hero with the phone number as the headline, then plain
    light sections built on asphalt/steel neutrals; service area drawn as real
@@ -128,11 +129,7 @@ p { margin: 0; }
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
 .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.brand-mark {
-  width: 42px; height: 42px; border-radius: 8px; background: var(--red);
-  display: grid; place-items: center; flex: none;
-}
-.brand-mark svg { width: 26px; height: 26px; }
+.brand-mark { width: 46px; height: 46px; flex: none; }
 .brand-name {
   font-family: var(--f-display); font-weight: 900; font-size: 1.6rem;
   text-transform: uppercase; line-height: .9; letter-spacing: .02em;
@@ -172,14 +169,20 @@ p { margin: 0; }
   gap: clamp(32px, 4vw, 56px); align-items: center;
 }
 .hero-copy { display: grid; gap: 28px; min-width: 0; }
-.hero-shot { margin: 0; min-width: 0; }
+.hero-shot { margin: 0; min-width: 0; position: relative; }
+.hero-badge {
+  position: absolute; left: -26px; bottom: -36px;
+  width: clamp(104px, 11vw, 150px); height: auto; aspect-ratio: 1;
+  filter: drop-shadow(0 14px 22px rgba(0,0,0,.55));
+}
 .hero-shot img {
   width: 100%; height: auto; border-radius: 12px;
   box-shadow: 0 30px 60px -24px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.12);
 }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr); padding-block: 24px 56px; }
-  .hero-shot { order: -1; }
+  .hero-shot { order: -1; margin-bottom: 34px; }
+  .hero-badge { left: 12px; bottom: -34px; width: 96px; }
 }
 .hero-tag { display: flex; align-items: center; gap: 12px; color: var(--hero-muted); }
 .hero-tag .label { color: var(--hero-muted); }
@@ -381,6 +384,8 @@ p { margin: 0; }
 .footer { background: var(--asphalt); color: var(--hero-muted); }
 .footer-inner { padding-block: 40px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px 40px; font-size: .98rem; }
 .footer .brand-name { color: var(--hero-ink); }
+.footer-brand { display: flex; align-items: center; gap: 16px; }
+.footer-brand svg { width: 88px; height: 88px; flex: none; }
 .footer p + p { margin-top: 6px; }
 .footer a { color: var(--hero-ink); text-decoration: none; }
 .footer a:hover { text-decoration: underline; }
@@ -402,17 +407,61 @@ p { margin: 0; }
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="vt-mark" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="60" fill="#C41E2A"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#F2A900" stroke-width="2.5"/>
+  <g transform="translate(60 60) scale(.8) translate(-58.5 -61)"><g>
+  <path d="M10 68 L14 62 H72 V68 Z" fill="#fff"/>
+  <path d="M18 62 V56 Q18 53 22 52 L30 50 L38 42 Q40 40 44 40 H54 Q57 40 59 43 L64 50 Q68 51 68 55 V62 Z" fill="#fff"/>
+  <path d="M40.5 44 H48 V50 H34.5 Z M51 44 H55 L59.5 50 H51 Z" fill="#C41E2A"/>
+  <circle cx="28" cy="61" r="5.5" fill="#C41E2A"/><circle cx="28" cy="61" r="3.2" fill="#fff"/>
+  <circle cx="58" cy="61" r="5.5" fill="#C41E2A"/><circle cx="58" cy="61" r="3.2" fill="#fff"/>
+  <rect x="18" y="68" width="80" height="7" fill="#fff"/>
+  <path d="M72 75 V48 Q72 44 76 44 H90 L99 57 H102 Q107 57 107 62 V75 Z" fill="#fff"/>
+  <path d="M77 48 H88 L95 57 H77 Z" fill="#C41E2A"/>
+  <rect x="78" y="39.5" width="9" height="4.5" rx="1.2" fill="#F2A900"/>
+  <circle cx="32" cy="79" r="11" fill="#C41E2A"/><circle cx="32" cy="79" r="8.5" fill="#fff"/><circle cx="32" cy="79" r="3.5" fill="#C41E2A"/>
+  <circle cx="91" cy="79" r="11" fill="#C41E2A"/><circle cx="91" cy="79" r="8.5" fill="#fff"/><circle cx="91" cy="79" r="3.5" fill="#C41E2A"/>
+</g></g>
+</symbol>
+<symbol id="vt-emblem" viewBox="0 0 240 240">
+  <defs>
+    <path id="vt-top-p" d="M34 120 A86 86 0 0 1 206 120"/>
+    <path id="vt-bot-p" d="M22 120 A98 98 0 0 0 218 120"/>
+  </defs>
+  <circle cx="120" cy="120" r="120" fill="#15171B"/>
+  <circle cx="120" cy="120" r="113" fill="none" stroke="#F2A900" stroke-width="2.5"/>
+  <circle cx="120" cy="120" r="72" fill="#C41E2A"/>
+  <circle cx="120" cy="120" r="72" fill="none" stroke="#fff" stroke-width="3"/>
+  <g font-family="Inter, 'Inter Black', 'Arial Black', Arial, sans-serif" font-weight="900" text-anchor="middle">
+    <text font-size="23" letter-spacing="2.4" fill="#fff"><textPath href="#vt-top-p" startOffset="50%">VASQUEZ TOWING</textPath></text>
+    <text font-size="13" letter-spacing="3" fill="#F2A900"><textPath href="#vt-bot-p" startOffset="50%">NORTHERN VIRGINIA</textPath></text>
+  </g>
+  <circle cx="28" cy="128" r="3.5" fill="#F2A900"/><circle cx="212" cy="128" r="3.5" fill="#F2A900"/>
+  <g transform="translate(120 121) scale(1.04) translate(-58.5 -61)"><g>
+  <path d="M10 68 L14 62 H72 V68 Z" fill="#fff"/>
+  <path d="M18 62 V56 Q18 53 22 52 L30 50 L38 42 Q40 40 44 40 H54 Q57 40 59 43 L64 50 Q68 51 68 55 V62 Z" fill="#fff"/>
+  <path d="M40.5 44 H48 V50 H34.5 Z M51 44 H55 L59.5 50 H51 Z" fill="#C41E2A"/>
+  <circle cx="28" cy="61" r="5.5" fill="#C41E2A"/><circle cx="28" cy="61" r="3.2" fill="#fff"/>
+  <circle cx="58" cy="61" r="5.5" fill="#C41E2A"/><circle cx="58" cy="61" r="3.2" fill="#fff"/>
+  <rect x="18" y="68" width="80" height="7" fill="#fff"/>
+  <path d="M72 75 V48 Q72 44 76 44 H90 L99 57 H102 Q107 57 107 62 V75 Z" fill="#fff"/>
+  <path d="M77 48 H88 L95 57 H77 Z" fill="#C41E2A"/>
+  <rect x="78" y="39.5" width="9" height="4.5" rx="1.2" fill="#F2A900"/>
+  <circle cx="32" cy="79" r="11" fill="#C41E2A"/><circle cx="32" cy="79" r="8.5" fill="#fff"/><circle cx="32" cy="79" r="3.5" fill="#C41E2A"/>
+  <circle cx="91" cy="79" r="11" fill="#C41E2A"/><circle cx="91" cy="79" r="8.5" fill="#fff"/><circle cx="91" cy="79" r="3.5" fill="#C41E2A"/>
+</g></g>
+</symbol>
   <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
   <symbol id="i-text" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2zm3 6v2h2V9zm4 0v2h2V9zm4 0v2h2V9z"/></symbol>
   <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M5 19 19 5M9 5h10v10"/></symbol>
-  <symbol id="i-hook" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 2v9m0 0a4 4 0 1 1-4 4M9 2h6"/></symbol>
 </svg>
 
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="Vasquez Towing home">
-      <span class="brand-mark"><svg viewBox="0 0 24 24" style="color:#fff"><use href="#i-hook"/></svg></span>
+      <svg class="brand-mark" viewBox="0 0 120 120" aria-hidden="true"><use href="#vt-mark"/></svg>
       <span class="brand-name">Vasquez Towing<small>Northern Virginia</small></span>
     </a>
     <nav class="nav" aria-label="Main">
@@ -444,6 +493,7 @@ p { margin: 0; }
       </div>
       <figure class="hero-shot">
         <img src="img/truck-day.jpg" alt="White Audi strapped down on the bed of Vasquez Towing's red Ford Super Duty flatbed at a gas station" width="2412" height="1558">
+        <svg class="hero-badge" viewBox="0 0 240 240" role="img" aria-label="Vasquez Towing logo"><use href="#vt-emblem"/></svg>
       </figure>
     </div>
   </section>
@@ -668,7 +718,8 @@ p { margin: 0; }
 
 <footer class="footer">
   <div class="wrap footer-inner">
-    <div>
+    <div class="footer-brand">
+      <svg viewBox="0 0 240 240" role="img" aria-label="Vasquez Towing logo"><use href="#vt-emblem"/></svg>
       <div class="brand-name">Vasquez Towing<small>Northern Virginia</small></div>
     </div>
     <div>
